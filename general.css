@@ -179,6 +179,8 @@ a:hover {
     height: 45px;
     width: auto;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    /* CHANGED: Updated to your new logo URL */
+    content: url('https://tse3.mm.bing.net/th/id/OIP.ORz2qWwloYPBTWgHSTnCKAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3');
 }
 
 /* ===== SIDEBAR ===== */
@@ -460,7 +462,7 @@ a:hover {
 .hero-section {
     height: 500px;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), 
-                url('https://tse3.mm.bing.net/th/id/OIP.ORz2qWwloYPBTWgHSTnCKAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3');
+                url('https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1600&q=80');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
