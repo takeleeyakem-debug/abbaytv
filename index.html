@@ -74,8 +74,8 @@
         <section class="hero-section">
             <div class="hero-overlay">
                 <div class="hero-content">
-                    <h1 class="hero-title animate-fade-in">Abbay TV Ethiopia</h1>
-                    <p class="hero-subtitle">የኢትዮጵያ የቴሌቪዥን ጣቢያ</p>
+                    <h1 class="hero-title">Abbay TV Ethiopia</h1>
+                    <p class="hero-subtitle">የኢትዮጵያ የቴሌቪዥን ጣቢያ - Your Premier Television Network</p>
                     <div class="hero-buttons">
                         <a href="live.html" class="btn btn-primary">
                             <i class="fas fa-play-circle"></i> Watch Live
@@ -88,43 +88,40 @@
             </div>
         </section>
 
-        <!-- Featured News (LOADED FROM news.json where is_featured=true) -->
+        <!-- Featured News -->
         <section class="content-section">
             <div class="section-header">
                 <h2><i class="fas fa-star"></i> Featured News</h2>
                 <a href="news.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="cards-grid" id="featured-news">
-                <!-- Content loaded from news.json -->
                 <div class="loading-spinner"></div>
             </div>
         </section>
 
-        <!-- Popular Programs (LOADED FROM programs.json - latest 4) -->
+        <!-- Popular Programs -->
         <section class="content-section">
             <div class="section-header">
                 <h2><i class="fas fa-fire"></i> Popular Programs</h2>
                 <a href="programs.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="cards-grid" id="popular-programs">
-                <!-- Content loaded from programs.json -->
                 <div class="loading-spinner"></div>
             </div>
         </section>
 
-        <!-- Live Now (LOADED FROM live.json where is_live=true) -->
+        <!-- Live Now -->
         <section class="content-section">
             <div class="section-header">
                 <h2><i class="fas fa-circle"></i> Live Now</h2>
                 <a href="live.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="cards-grid" id="live-now">
-                <!-- Content loaded from live.json -->
                 <div class="loading-spinner"></div>
             </div>
         </section>
 
-        <!-- Job Highlights (LOADED FROM jobs.json - latest 3) -->
+        <!-- Job Highlights -->
         <section class="content-section">
             <div class="section-header">
                 <h2><i class="fas fa-briefcase"></i> Job Opportunities</h2>
@@ -154,10 +151,44 @@
                 </div>
             </div>
             <div class="cards-grid" id="job-highlights">
-                <!-- Content loaded from jobs.json -->
                 <div class="loading-spinner"></div>
             </div>
         </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Abbay TV</h3>
+                    <p>Ethiopia's Premier Television Network delivering news, entertainment, and cultural programming 24/7.</p>
+                    <div class="social-media" id="social-media">
+                        <!-- Social media links added by JavaScript -->
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
+                        <li><a href="programs.html"><i class="fas fa-tv"></i> Programs</a></li>
+                        <li><a href="live.html"><i class="fas fa-satellite-dish"></i> Live TV</a></li>
+                        <li><a href="jobs.html"><i class="fas fa-briefcase"></i> Careers</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</p>
+                    <p><i class="fas fa-phone"></i> +251-11-123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@abbaytv.et</p>
+                    <p><i class="fas fa-clock"></i> 24/7 Broadcasting</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Abbay TV Ethiopia. All Rights Reserved.</p>
+                <p>የኢትዮጵያ የቴሌቪዥን ጣቢያ</p>
+            </div>
+        </footer>
     </main>
 
     <!-- Video Modal -->
@@ -169,10 +200,15 @@
             </div>
             <div class="modal-body">
                 <div class="video-container">
-                    <iframe id="video-player" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+                    <iframe id="video-player" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Job Modal -->
+    <div class="modal-overlay" id="job-modal">
+        <!-- Content added by JavaScript -->
     </div>
 
     <!-- Floating Contact Button -->

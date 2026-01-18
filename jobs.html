@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abbay TV Ethiopia - Job Opportunities</title>
+    <title>Abbay TV Ethiopia - Careers</title>
     <link rel="stylesheet" href="general.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,13 +20,13 @@
             </div>
             <div class="search-container">
                 <i class="fas fa-search"></i>
-                <input type="text" id="global-search" placeholder="Search job listings...">
+                <input type="text" id="global-search" placeholder="Search jobs...">
             </div>
         </div>
         <div class="top-bar-right">
             <div class="admin-announcement">
                 <i class="fas fa-bullhorn"></i>
-                <span id="announcement-text">Join our team at Abbay TV</span>
+                <span id="announcement-text">New job openings - Apply now!</span>
             </div>
             <img src="https://bbjlfleaksumwtimzdim.supabase.co/storage/v1/object/public/image/abbay-logo-gold.png" alt="Abbay TV Logo" class="top-logo">
         </div>
@@ -72,8 +72,8 @@
     <main class="main-content">
         <!-- Page Header -->
         <div class="page-header">
-            <h1><i class="fas fa-briefcase"></i> Job Opportunities</h1>
-            <p>All content loaded from <code>jobs.json</code> file</p>
+            <h1><i class="fas fa-briefcase"></i> Careers at Abbay TV</h1>
+            <p>Join our dynamic team and be part of Ethiopia's premier television network. Explore exciting career opportunities in broadcasting, journalism, and media.</p>
         </div>
 
         <!-- Job Statistics -->
@@ -88,8 +88,8 @@
             <div class="stat-card">
                 <i class="fas fa-map-marker-alt"></i>
                 <div>
-                    <h3>Addis Ababa</h3>
-                    <p>Main Location</p>
+                    <h3>3</h3>
+                    <p>Locations</p>
                 </div>
             </div>
             <div class="stat-card">
@@ -102,8 +102,8 @@
             <div class="stat-card">
                 <i class="fas fa-graduation-cap"></i>
                 <div>
-                    <h3 id="full-time-jobs">0</h3>
-                    <p>Full-time</p>
+                    <h3>4+</h3>
+                    <p>Departments</p>
                 </div>
             </div>
         </div>
@@ -111,17 +111,17 @@
         <!-- Filter Section -->
         <div class="filter-section">
             <div class="filter-group">
-                <label for="job-type-filter"><i class="fas fa-briefcase"></i> Job Type</label>
+                <label for="job-type-filter"><i class="fas fa-filter"></i> Job Type</label>
                 <select id="job-type-filter">
-                    <option value="all">All Types</option>
-                    <!-- Job types loaded dynamically from jobs.json -->
+                    <option value="all">All Job Types</option>
+                    <!-- Job types will be populated by JavaScript -->
                 </select>
             </div>
             <div class="filter-group">
                 <label for="location-filter"><i class="fas fa-map-marker-alt"></i> Location</label>
                 <select id="location-filter">
                     <option value="">All Locations</option>
-                    <!-- Locations loaded dynamically from jobs.json -->
+                    <!-- Locations will be populated by JavaScript -->
                 </select>
             </div>
             <div class="filter-group">
@@ -130,40 +130,142 @@
                     <option value="newest">Newest First</option>
                     <option value="oldest">Oldest First</option>
                     <option value="deadline">Deadline</option>
-                    <option value="az">A-Z</option>
-                    <option value="za">Z-A</option>
+                    <option value="az">A to Z</option>
+                    <option value="za">Z to A</option>
                 </select>
             </div>
             <div class="filter-group">
-                <label>&nbsp;</label>
-                <button id="reset-filters" class="btn btn-outline" style="width: 100%;">
-                    <i class="fas fa-redo"></i> Reset Filters
+                <label for="search-filter"><i class="fas fa-search"></i> Search Jobs</label>
+                <input type="text" id="search-filter" placeholder="Job title, company, location...">
+            </div>
+            <div class="filter-actions">
+                <button id="reset-filters" class="btn btn-secondary">
+                    <i class="fas fa-redo"></i> Reset
                 </button>
             </div>
         </div>
 
+        <!-- Jobs Count -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 id="jobs-count">Loading jobs...</h3>
+            <a href="#application-process" class="btn btn-outline">
+                <i class="fas fa-info-circle"></i> How to Apply
+            </a>
+        </div>
+
         <!-- Jobs Grid -->
-        <section class="content-section">
+        <div class="cards-grid" id="jobs-grid">
+            <!-- Jobs content loaded from jobs.json -->
+            <div class="loading-spinner"></div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container">
+            <button id="load-more-btn" class="btn btn-outline">
+                <i class="fas fa-plus"></i> Load More Jobs
+            </button>
+        </div>
+
+        <!-- Application Process -->
+        <section class="content-section" id="application-process">
             <div class="section-header">
-                <h2><i class="fas fa-list"></i> All Job Listings</h2>
-                <span id="jobs-count" class="view-all">Loading...</span>
+                <h2><i class="fas fa-user-check"></i> Application Process</h2>
             </div>
-            <div class="cards-grid" id="jobs-grid">
-                <!-- ALL job cards loaded from jobs.json -->
-                <div class="loading-spinner"></div>
-            </div>
-            
-            <!-- Load More -->
-            <div class="load-more-container">
-                <!-- Load more button appears here -->
+            <div class="cards-grid">
+                <div class="card" style="cursor: default;">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-search" style="color: var(--primary-gold);"></i> 1. Browse Jobs</h3>
+                        <p class="card-description">Explore current job openings at Abbay TV Ethiopia. Filter by department, location, or job type to find the perfect match.</p>
+                    </div>
+                </div>
+                <div class="card" style="cursor: default;">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-file-alt" style="color: var(--primary-gold);"></i> 2. Prepare Documents</h3>
+                        <p class="card-description">Prepare your CV, cover letter, and any required certificates. Make sure they are up-to-date and relevant to the position.</p>
+                    </div>
+                </div>
+                <div class="card" style="cursor: default;">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-paper-plane" style="color: var(--primary-gold);"></i> 3. Submit Application</h3>
+                        <p class="card-description">Send your application to the email address provided in the job posting. Include the job title in the subject line.</p>
+                    </div>
+                </div>
+                <div class="card" style="cursor: default;">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-calendar-check" style="color: var(--primary-gold);"></i> 4. Interview Process</h3>
+                        <p class="card-description">Shortlisted candidates will be contacted for interviews. The process may include multiple interview rounds and assessments.</p>
+                    </div>
+                </div>
             </div>
         </section>
-    </main>
 
-    <!-- Job Modal -->
-    <div class="modal-overlay" id="job-modal">
-        <!-- Job details loaded dynamically -->
-    </div>
+        <!-- Departments Section -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-building"></i> Departments</h2>
+            </div>
+            <div class="cards-grid">
+                <div class="card" style="cursor: default;">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-newspaper" style="color: var(--primary-gold);"></i> News Department</h3>
+                        <p class="card-description">Journalists, news anchors, editors, and production staff for our 24/7 news coverage.</p>
+                    </div>
+                </div>
+                <div class="card" style="cursor: default;">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-film" style="color: var(--primary-gold);"></i> Production</h3>
+                        <p class="card-description">Directors, producers, camera operators, and technical staff for program production.</p>
+                    </div>
+                </div>
+                <div class="card" style="cursor: default;">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-wifi" style="color: var(--primary-gold);"></i> Technical</h3>
+                        <p class="card-description">Broadcast engineers, IT specialists, and maintenance staff for our technical operations.</p>
+                    </div>
+                </div>
+                <div class="card" style="cursor: default;">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-users" style="color: var(--primary-gold);"></i> Administration</h3>
+                        <p class="card-description">HR, finance, marketing, and administrative staff supporting our operations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Human Resources</h3>
+                    <p>Join our team of dedicated professionals in delivering quality television programming to Ethiopia and beyond.</p>
+                    <p><i class="fas fa-envelope"></i> careers@abbaytv.et</p>
+                    <p><i class="fas fa-phone"></i> +251-11-123-4570 (HR Department)</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Career Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Application Tips</a></li>
+                        <li><a href="#"><i class="fas fa-graduation-cap"></i> Internship Program</a></li>
+                        <li><a href="#"><i class="fas fa-user-graduate"></i> Training Opportunities</a></li>
+                        <li><a href="#"><i class="fas fa-handshake"></i> Employee Benefits</a></li>
+                        <li><a href="#"><i class="fas fa-building"></i> Company Culture</a></li>
+                        <li><a href="#"><i class="fas fa-calendar-alt"></i> Recruitment Calendar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>HR Office Hours</h3>
+                    <p><i class="fas fa-clock"></i> Monday - Friday</p>
+                    <p><i class="fas fa-sun"></i> 8:30 AM - 5:30 PM</p>
+                    <p><i class="fas fa-map-marker-alt"></i> HR Department, 3rd Floor</p>
+                    <p><i class="fas fa-id-card"></i> Bring original documents for interviews</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Abbay TV Ethiopia. All Rights Reserved.</p>
+                <p>የኢትዮጵያ የቴሌቪዥን ጣቢያ - የሰው ሀብት ክፍል</p>
+            </div>
+        </footer>
+    </main>
 
     <!-- Video Modal -->
     <div class="modal-overlay" id="video-modal">
@@ -174,24 +276,22 @@
             </div>
             <div class="modal-body">
                 <div class="video-container">
-                    <iframe id="video-player" width="100%" height="100%" frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>
+                    <iframe id="video-player" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Job Modal -->
+    <div class="modal-overlay" id="job-modal">
+        <!-- Content added by JavaScript -->
+    </div>
+
     <!-- Floating Contact Button -->
     <a href="contact.html" class="floating-contact-btn">
         <i class="fas fa-comment-alt"></i>
-        <span>Contact Us</span>
+        <span>Contact HR</span>
     </a>
-
-    <!-- Back to Top -->
-    <div class="back-to-top">
-        <i class="fas fa-chevron-up"></i>
-    </div>
 
     <script src="main.js"></script>
 </body>

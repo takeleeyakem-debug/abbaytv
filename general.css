@@ -179,8 +179,7 @@ a:hover {
     height: 45px;
     width: auto;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
-    /* CHANGED: Updated to your new logo URL */
-    content: url('https://tse3.mm.bing.net/th/id/OIP.ORz2qWwloYPBTWgHSTnCKAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3');
+    /* REMOVED the content property to use JavaScript URL */
 }
 
 /* ===== SIDEBAR ===== */
