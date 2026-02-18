@@ -3,159 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abbay TV Ethiopia - TV Programs</title>
+    <title>ABBAY TV ETHIOPIA - Programs</title>
     <link rel="stylesheet" href="general.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="https://bbjlfleaksumwtimzdim.supabase.co/storage/v1/object/public/image/abbay-logo-gold.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="top-bar-left">
-            <div class="hamburger-menu">
-                <i class="fas fa-bars"></i>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.ORz2qWwloYPBTWgHSTnCKAHaHa" alt="ABBAY TV Logo" class="logo">
+                <span class="brand-name">ABBAY TV ETHIOPIA</span>
             </div>
-            <div class="search-container">
-                <i class="fas fa-search"></i>
-                <input type="text" id="global-search" placeholder="Search TV programs...">
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="programs.html" class="active">Programs</a></li>
+                <li><a href="live.html">Live</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-        </div>
-        <div class="top-bar-right">
-            <div class="admin-announcement">
-                <i class="fas fa-bullhorn"></i>
-                <span id="announcement-text">Now Showing on Abbay TV</span>
-            </div>
-            <img src="https://bbjlfleaksumwtimzdim.supabase.co/storage/v1/object/public/image/abbay-logo-gold.png" alt="Abbay TV Logo" class="top-logo">
-        </div>
-    </div>
-
-    <!-- Sidebar -->
-    <nav class="sidebar">
-        <div class="logo-section">
-            <img src="https://bbjlfleaksumwtimzdim.supabase.co/storage/v1/object/public/image/abbay-logo-gold.png" alt="Abbay TV Logo" class="logo">
-            <h1>Abbay TV Ethiopia</h1>
-            <p>የኢትዮጵያ የቴሌቪዥን ጣቢያ</p>
-        </div>
-        <ul class="nav-menu">
-            <li class="nav-item"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-            <li class="nav-item"><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
-            <li class="nav-item active"><a href="programs.html"><i class="fas fa-tv"></i> Programs</a></li>
-            <li class="nav-item"><a href="live.html"><i class="fas fa-satellite-dish"></i> Live TV</a></li>
-            <li class="nav-item"><a href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a></li>
-            <li class="nav-item"><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-        </ul>
-        <div class="sidebar-footer">
-            <p>© 2024 Abbay TV Ethiopia</p>
-            <p>All Rights Reserved</p>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu-overlay">
-        <div class="mobile-menu-close">
-            <i class="fas fa-times"></i>
+    <section class="page-header">
+        <div class="container">
+            <h1>📺 Our Programs</h1>
+            <p>Discover our diverse range of TV programs</p>
         </div>
-        <ul class="mobile-nav-menu">
-            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
-            <li><a href="programs.html" class="active"><i class="fas fa-tv"></i> Programs</a></li>
-            <li><a href="live.html"><i class="fas fa-satellite-dish"></i> Live TV</a></li>
-            <li><a href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a></li>
-            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-        </ul>
-    </div>
+    </section>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Page Header -->
-        <div class="page-header">
-            <h1><i class="fas fa-tv"></i> TV Programs</h1>
-            <p>All content loaded from <code>programs.json</code> file</p>
-        </div>
-
-        <!-- Filter Section -->
-        <div class="filter-section">
-            <div class="filter-group">
-                <label for="category-filter"><i class="fas fa-tag"></i> Category</label>
-                <select id="category-filter">
-                    <option value="">All Categories</option>
-                    <!-- Categories loaded dynamically from programs.json -->
+    <section class="section">
+        <div class="container">
+            <div class="filters">
+                <select id="program-filter" class="filter-select">
+                    <option value="all">All Categories</option>
+                    <option value="News">News</option>
+                    <option value="Talk Show">Talk Show</option>
+                    <option value="Documentary">Documentary</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Culture">Culture</option>
                 </select>
             </div>
-            <div class="filter-group">
-                <label for="type-filter"><i class="fas fa-filter"></i> Type</label>
-                <select id="type-filter">
-                    <option value="all">All Programs</option>
-                    <option value="series">Series</option>
-                    <option value="special">Specials</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label for="sort-filter"><i class="fas fa-sort"></i> Sort By</label>
-                <select id="sort-filter">
-                    <option value="newest">Newest First</option>
-                    <option value="oldest">Oldest First</option>
-                    <option value="az">A-Z</option>
-                    <option value="za">Z-A</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label>&nbsp;</label>
-                <button id="reset-filters" class="btn btn-outline" style="width: 100%;">
-                    <i class="fas fa-redo"></i> Reset Filters
-                </button>
-            </div>
+            <div id="programs-container" class="cards-grid"></div>
         </div>
+    </section>
 
-        <!-- Programs Grid -->
-        <section class="content-section">
-            <div class="section-header">
-                <h2><i class="fas fa-film"></i> All Programs</h2>
-                <span id="programs-count" class="view-all">Loading...</span>
-            </div>
-            <div class="cards-grid" id="programs-grid">
-                <!-- ALL program cards loaded from programs.json -->
-                <div class="loading-spinner"></div>
-            </div>
-            
-            <!-- Load More -->
-            <div class="load-more-container">
-                <!-- Load more button appears here -->
-            </div>
-        </section>
-    </main>
-
-    <!-- Video Modal -->
-    <div class="modal-overlay" id="video-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="video-title"></h3>
-                <button class="modal-close"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="modal-body">
-                <div class="video-container">
-                    <iframe id="video-player" width="100%" height="100%" frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>
-                </div>
-            </div>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 ABBAY TV ETHIOPIA. All rights reserved.</p>
         </div>
-    </div>
-
-    <!-- Floating Contact Button -->
-    <a href="contact.html" class="floating-contact-btn">
-        <i class="fas fa-comment-alt"></i>
-        <span>Contact Us</span>
-    </a>
-
-    <!-- Back to Top -->
-    <div class="back-to-top">
-        <i class="fas fa-chevron-up"></i>
-    </div>
+    </footer>
 
     <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProgramsPage();
+        });
+    </script>
 </body>
 </html>

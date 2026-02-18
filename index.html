@@ -3,220 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abbay TV Ethiopia - Home</title>
+    <title>ABBAY TV ETHIOPIA - Home</title>
     <link rel="stylesheet" href="general.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="https://bbjlfleaksumwtimzdim.supabase.co/storage/v1/object/public/image/abbay-logo-gold.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="top-bar-left">
-            <div class="hamburger-menu">
-                <i class="fas fa-bars"></i>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.ORz2qWwloYPBTWgHSTnCKAHaHa" alt="ABBAY TV Logo" class="logo">
+                <span class="brand-name">ABBAY TV ETHIOPIA</span>
             </div>
-            <div class="search-container">
-                <i class="fas fa-search"></i>
-                <input type="text" id="global-search" placeholder="Search news, programs, jobs...">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="live.html">Live</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-        </div>
-        <div class="top-bar-right">
-            <div class="admin-announcement">
-                <i class="fas fa-bullhorn"></i>
-                <span id="announcement-text">Welcome to Abbay TV Ethiopia</span>
-            </div>
-            <img src="https://bbjlfleaksumwtimzdim.supabase.co/storage/v1/object/public/image/abbay-logo-gold.png" alt="Abbay TV Logo" class="top-logo">
-        </div>
-    </div>
-
-    <!-- Sidebar -->
-    <nav class="sidebar">
-        <div class="logo-section">
-            <img src="https://bbjlfleaksumwtimzdim.supabase.co/storage/v1/object/public/image/abbay-logo-gold.png" alt="Abbay TV Logo" class="logo">
-            <h1>Abbay TV Ethiopia</h1>
-            <p>የኢትዮጵያ የቴሌቪዥን ጣቢያ</p>
-        </div>
-        <ul class="nav-menu">
-            <li class="nav-item active"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-            <li class="nav-item"><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
-            <li class="nav-item"><a href="programs.html"><i class="fas fa-tv"></i> Programs</a></li>
-            <li class="nav-item"><a href="live.html"><i class="fas fa-satellite-dish"></i> Live TV</a></li>
-            <li class="nav-item"><a href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a></li>
-            <li class="nav-item"><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-        </ul>
-        <div class="sidebar-footer">
-            <p>© 2024 Abbay TV Ethiopia</p>
-            <p>All Rights Reserved</p>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu-overlay">
-        <div class="mobile-menu-close">
-            <i class="fas fa-times"></i>
+    <!-- Hero Banner -->
+    <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+        <div class="container">
+            <h1>Welcome to ABBAY TV ETHIOPIA</h1>
+            <p>Your Window to Ethiopia - News, Culture, and Entertainment</p>
         </div>
-        <ul class="mobile-nav-menu">
-            <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
-            <li><a href="programs.html"><i class="fas fa-tv"></i> Programs</a></li>
-            <li><a href="live.html"><i class="fas fa-satellite-dish"></i> Live TV</a></li>
-            <li><a href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a></li>
-            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-        </ul>
-    </div>
+    </section>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-overlay">
-                <div class="hero-content">
-                    <h1 class="hero-title">Abbay TV Ethiopia</h1>
-                    <p class="hero-subtitle">የኢትዮጵያ የቴሌቪዥን ጣቢያ - Your Premier Television Network</p>
-                    <div class="hero-buttons">
-                        <a href="live.html" class="btn btn-primary">
-                            <i class="fas fa-play-circle"></i> Watch Live
-                        </a>
-                        <a href="news.html" class="btn btn-outline">
-                            <i class="fas fa-newspaper"></i> Latest News
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- Live Now Section (Conditional) -->
+    <section id="live-section" class="section live-now" style="display: none;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-circle live-icon"></i> LIVE NOW</h2>
+            <div id="live-container" class="live-grid"></div>
+        </div>
+    </section>
 
-        <!-- Featured News -->
-        <section class="content-section">
+    <!-- Latest News -->
+    <section class="section">
+        <div class="container">
             <div class="section-header">
-                <h2><i class="fas fa-star"></i> Featured News</h2>
+                <h2 class="section-title">📰 Latest News</h2>
                 <a href="news.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="cards-grid" id="featured-news">
-                <div class="loading-spinner"></div>
-            </div>
-        </section>
+            <div id="news-container" class="cards-grid"></div>
+        </div>
+    </section>
 
-        <!-- Popular Programs -->
-        <section class="content-section">
+    <!-- Latest Programs -->
+    <section class="section bg-light">
+        <div class="container">
             <div class="section-header">
-                <h2><i class="fas fa-fire"></i> Popular Programs</h2>
+                <h2 class="section-title">📺 Latest Programs</h2>
                 <a href="programs.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="cards-grid" id="popular-programs">
-                <div class="loading-spinner"></div>
-            </div>
-        </section>
+            <div id="programs-container" class="cards-grid"></div>
+        </div>
+    </section>
 
-        <!-- Live Now -->
-        <section class="content-section">
+    <!-- Latest Jobs -->
+    <section class="section">
+        <div class="container">
             <div class="section-header">
-                <h2><i class="fas fa-circle"></i> Live Now</h2>
-                <a href="live.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="cards-grid" id="live-now">
-                <div class="loading-spinner"></div>
-            </div>
-        </section>
-
-        <!-- Job Highlights -->
-        <section class="content-section">
-            <div class="section-header">
-                <h2><i class="fas fa-briefcase"></i> Job Opportunities</h2>
+                <h2 class="section-title">💼 Latest Jobs</h2>
                 <a href="jobs.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="job-statistics">
-                <div class="stat-card">
-                    <i class="fas fa-users"></i>
-                    <div>
-                        <h3 id="job-count">0</h3>
-                        <p>Open Positions</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h3>Addis Ababa</h3>
-                        <p>Main Location</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <h3 id="urgent-jobs">0</h3>
-                        <p>Urgent Hiring</p>
-                    </div>
-                </div>
-            </div>
-            <div class="cards-grid" id="job-highlights">
-                <div class="loading-spinner"></div>
-            </div>
-        </section>
+            <div id="jobs-container" class="cards-grid"></div>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>About Abbay TV</h3>
-                    <p>Ethiopia's Premier Television Network delivering news, entertainment, and cultural programming 24/7.</p>
-                    <div class="social-media" id="social-media">
-                        <!-- Social media links added by JavaScript -->
+    <!-- Contact Summary -->
+    <section class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title text-white">📢 Connect With Us</h2>
+            <div class="contact-summary">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@abbaytv.et</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+251-11-123-4567</span>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
-                        <li><a href="programs.html"><i class="fas fa-tv"></i> Programs</a></li>
-                        <li><a href="live.html"><i class="fas fa-satellite-dish"></i> Live TV</a></li>
-                        <li><a href="jobs.html"><i class="fas fa-briefcase"></i> Careers</a></li>
-                        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</p>
-                    <p><i class="fas fa-phone"></i> +251-11-123-4567</p>
-                    <p><i class="fas fa-envelope"></i> info@abbaytv.et</p>
-                    <p><i class="fas fa-clock"></i> 24/7 Broadcasting</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2024 Abbay TV Ethiopia. All Rights Reserved.</p>
-                <p>የኢትዮጵያ የቴሌቪዥን ጣቢያ</p>
-            </div>
-        </footer>
-    </main>
-
-    <!-- Video Modal -->
-    <div class="modal-overlay" id="video-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="video-title"></h3>
-                <button class="modal-close"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="modal-body">
-                <div class="video-container">
-                    <iframe id="video-player" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Job Modal -->
-    <div class="modal-overlay" id="job-modal">
-        <!-- Content added by JavaScript -->
-    </div>
-
-    <!-- Floating Contact Button -->
-    <a href="contact.html" class="floating-contact-btn">
-        <i class="fas fa-comment-alt"></i>
-        <span>Contact Us</span>
-    </a>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 ABBAY TV ETHIOPIA. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="main.js"></script>
+    <script>
+        // Homepage specific initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            loadHomepageContent();
+        });
+    </script>
 </body>
 </html>
