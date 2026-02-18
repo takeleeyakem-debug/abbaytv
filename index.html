@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>ABBAY TV • News</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABBAY TV Ethiopia • Home</title>
     <link rel="stylesheet" href="general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="dark-theme">
-    <!-- SIDE MENU -->
+    <!-- SIDE MENU (same structure) -->
     <div class="menu-overlay" id="menuOverlay"></div>
     
     <div class="side-menu" id="sideMenu">
@@ -24,150 +24,116 @@
         
         <div class="menu-search">
             <i class="fas fa-search search-icon"></i>
-            <input type="text" id="globalSearch" placeholder="Search news..." autocomplete="off">
-            <button class="search-clear" id="clearSearch"><i class="fas fa-times"></i></button>
+            <input type="text" id="globalSearch" placeholder="Search..." autocomplete="off">
         </div>
         
         <div class="search-results" id="searchResults"></div>
         
         <div class="menu-links">
-            <a href="index.html" class="menu-link">
-                <i class="fas fa-home"></i>
-                <span>Home</span>
+            <a href="index.html" class="menu-link active">
+                <i class="fas fa-home"></i> <span>Home</span>
             </a>
-            <a href="news.html" class="menu-link active">
-                <i class="fas fa-newspaper"></i>
-                <span>News</span>
+            <a href="news.html" class="menu-link">
+                <i class="fas fa-newspaper"></i> <span>News</span>
             </a>
             <a href="programs.html" class="menu-link">
-                <i class="fas fa-tv"></i>
-                <span>Programs</span>
+                <i class="fas fa-tv"></i> <span>Programs</span>
             </a>
             <a href="live.html" class="menu-link">
-                <i class="fas fa-circle" style="color: #ff0000;"></i>
-                <span>Live</span>
-                <span class="live-badge" id="liveMenuBadge" style="display: none;">NOW</span>
+                <i class="fas fa-circle" style="color: #ff0000;"></i> <span>Live</span>
             </a>
             <a href="jobs.html" class="menu-link">
-                <i class="fas fa-briefcase"></i>
-                <span>Jobs</span>
+                <i class="fas fa-briefcase"></i> <span>Jobs</span>
             </a>
             <a href="contact.html" class="menu-link">
-                <i class="fas fa-envelope"></i>
-                <span>Contact</span>
+                <i class="fas fa-envelope"></i> <span>Contact</span>
             </a>
         </div>
         
         <div class="menu-footer">
             <div class="social-grid">
-                <a href="#" class="social-item"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="social-item"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="social-item"><i class="fab fa-telegram"></i></a>
-                <a href="#" class="social-item"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-item"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-item"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
-            <p class="copyright">© 2026 ABBAY TV Ethiopia</p>
         </div>
     </div>
 
     <!-- MAIN CONTENT -->
     <div class="main-content">
-        <!-- TOP NAVIGATION -->
+        <!-- TOP NAV -->
         <header class="top-nav">
             <div class="nav-left">
-                <button class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="logo-text">
-                    <span class="gold">ABBAY</span> NEWS
-                </div>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="logo-text"><span class="gold">ABBAY</span> TV</div>
             </div>
             <div class="nav-right">
-                <button class="nav-icon" id="searchToggle">
-                    <i class="fas fa-search"></i>
-                </button>
+                <button class="nav-icon" id="searchToggle"><i class="fas fa-search"></i></button>
             </div>
         </header>
 
-        <!-- BREAKING NEWS TICKER -->
-        <div class="breaking-news" id="breakingNews">
-            <div class="breaking-label">BREAKING</div>
-            <div class="breaking-text" id="breakingText">
-                <span>🇪🇹 GERD generates full power • Ethiopian athletes win Tokyo Marathon • New economic reforms announced</span>
+        <!-- LIVE NOW SECTION -->
+        <section class="stories-section" id="liveStoriesSection" style="display: none;">
+            <h2 class="section-title"><i class="fas fa-circle" style="color: #ff0000;"></i> LIVE NOW</h2>
+            <div class="stories-container" id="liveStories"></div>
+        </section>
+
+        <!-- NEWS FEED -->
+        <main class="feed">
+            <!-- News Section -->
+            <div class="feed-section">
+                <div class="feed-header">
+                    <h3><i class="fas fa-newspaper" style="color: var(--gold);"></i> Latest News</h3>
+                    <a href="news.html" class="view-all-link">See All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feed-grid" id="newsFeed">
+                    <div class="loading-spinner"><i class="fas fa-spinner fa-spin"></i> Loading news...</div>
+                </div>
             </div>
-        </div>
 
-        <!-- CATEGORY TABS -->
-        <div class="category-tabs" id="categoryTabs">
-            <button class="category-tab active" data-category="all">All</button>
-            <button class="category-tab" data-category="Politics">Politics</button>
-            <button class="category-tab" data-category="Sports">Sports</button>
-            <button class="category-tab" data-category="Economy">Economy</button>
-            <button class="category-tab" data-category="Entertainment">Entertainment</button>
-            <button class="category-tab" data-category="Culture">Culture</button>
-            <button class="category-tab" data-category="Technology">Technology</button>
-        </div>
+            <!-- Programs Section -->
+            <div class="feed-section">
+                <div class="feed-header">
+                    <h3><i class="fas fa-tv" style="color: var(--gold);"></i> Programs</h3>
+                    <a href="programs.html" class="view-all-link">See All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feed-grid" id="programsFeed">
+                    <div class="loading-spinner"><i class="fas fa-spinner fa-spin"></i> Loading programs...</div>
+                </div>
+            </div>
 
-        <!-- FEATURED NEWS (First item large) -->
-        <div class="featured-news" id="featuredNews"></div>
-
-        <!-- NEWS GRID -->
-        <main class="news-archive">
-            <div class="news-grid" id="newsContainer">
-                <div class="loading-spinner">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    <p>Loading news...</p>
+            <!-- Jobs Section -->
+            <div class="feed-section">
+                <div class="feed-header">
+                    <h3><i class="fas fa-briefcase" style="color: var(--gold);"></i> Opportunities</h3>
+                    <a href="jobs.html" class="view-all-link">See All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="jobs-feed" id="jobsFeed">
+                    <div class="loading-spinner"><i class="fas fa-spinner fa-spin"></i> Loading jobs...</div>
                 </div>
             </div>
         </main>
 
-        <!-- LOAD MORE BUTTON -->
-        <div class="load-more-container">
-            <button class="load-more-btn" id="loadMoreNews">
-                <i class="fas fa-sync-alt"></i> Load More News
-            </button>
-        </div>
-
-        <!-- BOTTOM NAVIGATION -->
+        <!-- BOTTOM NAV -->
         <nav class="bottom-nav">
-            <a href="index.html" class="bottom-nav-item">
-                <i class="fas fa-home"></i>
-                <span>Home</span>
-            </a>
-            <a href="news.html" class="bottom-nav-item active">
-                <i class="fas fa-newspaper"></i>
-                <span>News</span>
-            </a>
-            <a href="programs.html" class="bottom-nav-item">
-                <i class="fas fa-tv"></i>
-                <span>Shows</span>
-            </a>
-            <a href="live.html" class="bottom-nav-item">
-                <i class="fas fa-circle" style="color: #ff0000;"></i>
-                <span>Live</span>
-            </a>
-            <a href="jobs.html" class="bottom-nav-item">
-                <i class="fas fa-briefcase"></i>
-                <span>Jobs</span>
-            </a>
+            <a href="index.html" class="bottom-nav-item active"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="news.html" class="bottom-nav-item"><i class="fas fa-newspaper"></i><span>News</span></a>
+            <a href="programs.html" class="bottom-nav-item"><i class="fas fa-tv"></i><span>Shows</span></a>
+            <a href="live.html" class="bottom-nav-item"><i class="fas fa-circle" style="color: #ff0000;"></i><span>Live</span></a>
+            <a href="jobs.html" class="bottom-nav-item"><i class="fas fa-briefcase"></i><span>Jobs</span></a>
         </nav>
-    </div>
-
-    <!-- SEARCH OVERLAY -->
-    <div class="search-overlay" id="searchOverlay">
-        <div class="search-header">
-            <button class="back-btn" id="closeSearch"><i class="fas fa-arrow-left"></i></button>
-            <input type="text" id="mobileSearch" placeholder="Search news..." autofocus>
-        </div>
-        <div class="search-overlay-results" id="mobileSearchResults"></div>
     </div>
 
     <script src="main.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            if (typeof loadNewsPage === 'function') {
-                loadNewsPage();
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Homepage loaded, fetching JSON...');
+            if (typeof loadHomepage === 'function') {
+                loadHomepage();
+            } else {
+                console.error('loadHomepage function not found! Check main.js');
+                document.getElementById('newsFeed').innerHTML = '<div class="error">Error: JavaScript not loaded properly</div>';
             }
         });
     </script>
