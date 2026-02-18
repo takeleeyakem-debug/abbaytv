@@ -1,29 +1,94 @@
-[
+{
+  "metadata": {
+    "total_items": 6,
+    "section": "live",
+    "last_updated": "2024-01-15"
+  },
+  "currently_live": {
+    "status": "live",
+    "title": "City Council Meeting - Budget Hearing",
+    "description": "Live coverage of the annual city budget hearing",
+    "youtube_url": "https://www.youtube.com/watch?v=livecitycouncil123",
+    "viewers": 234,
+    "started_at": "2024-01-15T19:00:00Z"
+  },
+  "upcoming_streams": [
     {
-        "id": 1,
-        "title": "Abbay TV Live Stream",
-        "description": "24/7 Live broadcasting of Abbay TV Ethiopia",
-        "youtube_url": "https://www.youtube.com/embed/live_stream?channel=UC_x5XG1OV2P6uZZ5FSM9Ttw",
-        "is_live": true,
-        "schedule_date": "2024-01-20",
-        "image_url": "https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=800&fit=crop"
+      "id": 6,
+      "title": "High School Basketball Championship",
+      "date": "2024-01-20T19:30:00Z",
+      "description": "Live coverage of the city championship game",
+      "youtube_url": "https://www.youtube.com/watch?v=basketball456",
+      "thumbnail": "/assets/images/live/basketball.jpg",
+      "expected_viewers": 500
     },
     {
-        "id": 2,
-        "title": "News Hour Live",
-        "description": "Live news broadcast with breaking news and updates",
-        "youtube_url": "https://www.youtube.com/watch?v=9bZkp7q19f0",
-        "is_live": false,
-        "schedule_date": "2024-01-21",
-        "image_url": "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?w=800&fit=crop"
+      "id": 5,
+      "title": "Mayor's State of the City Address",
+      "date": "2024-01-25T18:00:00Z",
+      "description": "Annual address highlighting city achievements and future plans",
+      "youtube_url": "https://www.youtube.com/watch?v=mayoraddress789",
+      "thumbnail": "/assets/images/live/mayor.jpg",
+      "expected_viewers": 1000
     },
     {
-        "id": 3,
-        "title": "Cultural Show Live",
-        "description": "Live performance of traditional Ethiopian music and dance",
-        "youtube_url": "https://www.youtube.com/watch?v=L_jWHffIx5E",
-        "is_live": true,
-        "schedule_date": "2024-01-20",
-        "image_url": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&fit=crop"
+      "id": 4,
+      "title": "Community Talent Show",
+      "date": "2024-01-27T20:00:00Z",
+      "description": "Annual showcase of local talent - singers, dancers, and performers",
+      "youtube_url": "https://www.youtube.com/watch?v=talentshow321",
+      "thumbnail": "/assets/images/live/talent-show.jpg",
+      "expected_viewers": 300
+    },
+    {
+      "id": 3,
+      "title": "Farmers Market Grand Opening",
+      "date": "2024-02-03T09:00:00Z",
+      "description": "Live from the new downtown farmers market location",
+      "youtube_url": "https://www.youtube.com/watch?v=farmersmarket654",
+      "thumbnail": "/assets/images/live/farmers-market.jpg",
+      "expected_viewers": 150
+    },
+    {
+      "id": 2,
+      "title": "Local Music Festival",
+      "date": "2024-02-10T16:00:00Z",
+      "description": "Featuring performances from 10 local bands",
+      "youtube_url": "https://www.youtube.com/watch?v=musicfest987",
+      "thumbnail": "/assets/images/live/music-fest.jpg",
+      "expected_viewers": 800
+    },
+    {
+      "id": 1,
+      "title": "Science Fair Awards Ceremony",
+      "date": "2024-02-15T18:30:00Z",
+      "description": "Announcing winners of the regional science fair",
+      "youtube_url": "https://www.youtube.com/watch?v=sciencefair246",
+      "thumbnail": "/assets/images/live/science-fair.jpg",
+      "expected_viewers": 200
     }
-]
+  ],
+  "past_streams": [
+    {
+      "id": 3,
+      "title": "New Year's Eve Celebration",
+      "date": "2023-12-31T23:00:00Z",
+      "views": 2500,
+      "youtube_url": "https://www.youtube.com/watch?v=nye2023"
+    },
+    {
+      "id": 2,
+      "title": "Holiday Parade",
+      "date": "2023-12-15T10:00:00Z",
+      "views": 1800,
+      "youtube_url": "https://www.youtube.com/watch?v=holidayparade"
+    },
+    {
+      "id": 1,
+      "title": "Thanksgiving Food Drive",
+      "date": "2023-11-20T14:00:00Z",
+      "views": 950,
+      "youtube_url": "https://www.youtube.com/watch?v=fooddrive"
+    }
+  ]
+}

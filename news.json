@@ -1,50 +1,99 @@
-[
+{
+  "metadata": {
+    "total_items": 8,
+    "section": "news",
+    "last_updated": "2024-01-15"
+  },
+  "items": [
     {
-        "id": 1,
-        "title": "Ethiopian Economic Forum 2024 Concludes",
-        "description": "The annual Ethiopian Economic Forum concluded today with discussions on sustainable development and economic growth strategies for the coming year.",
-        "category": "News",
-        "date": "2024-01-20",
-        "image_url": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&fit=crop",
-        "youtube_url": "https://www.youtube.com/watch?v=qfZcRBvue-c",
-        "is_featured": true,
-        "author": "John Doe",
-        "read_time": "5 min"
+      "id": 8,
+      "title": "Community Center Renovation Project Begins",
+      "date": "2024-01-15",
+      "category": "Local News",
+      "author": "Sarah Johnson",
+      "summary": "The long-awaited community center renovation project kicks off with a groundbreaking ceremony attended by local officials and residents.",
+      "content": "Full article content here... The $2.5 million project includes a new library wing, upgraded sports facilities, and a community gathering space...",
+      "image_url": "/assets/images/news/community-center.jpg",
+      "youtube_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "tags": ["community", "development", "infrastructure"]
     },
     {
-        "id": 2,
-        "title": "New Cultural Festival Announced",
-        "description": "A new cultural festival celebrating Ethiopian heritage will be held next month in Addis Ababa featuring music, dance, and traditional cuisine.",
-        "category": "Entertainment",
-        "date": "2024-01-19",
-        "image_url": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&fit=crop",
-        "youtube_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        "is_featured": true,
-        "author": "Jane Smith",
-        "read_time": "3 min"
+      "id": 7,
+      "title": "Local School Wins National Science Competition",
+      "date": "2024-01-12",
+      "category": "Education",
+      "author": "Michael Chen",
+      "summary": "Lincoln High School students take first place with their innovative water purification system.",
+      "content": "Full article content here... The team of five students developed a low-cost water filtration system using locally sourced materials...",
+      "image_url": "/assets/images/news/science-win.jpg",
+      "youtube_url": "https://www.youtube.com/watch?v=abcdefghijk",
+      "tags": ["education", "science", "youth"]
     },
     {
-        "id": 3,
-        "title": "Sports: National Football League Updates",
-        "description": "Latest updates from the Ethiopian Premier League with team standings and upcoming matches schedule.",
-        "category": "Sports",
-        "date": "2024-01-18",
-        "image_url": "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w-800&fit=crop",
-        "youtube_url": "https://www.youtube.com/watch?v=9bZkp7q19f0",
-        "is_featured": false,
-        "author": "Mike Johnson",
-        "read_time": "4 min"
+      "id": 6,
+      "title": "Annual Food Drive Exceeds Expectations",
+      "date": "2024-01-10",
+      "category": "Community",
+      "author": "Maria Garcia",
+      "summary": "Residents donate over 5,000 pounds of food to local food banks during the holiday season.",
+      "image_url": "/assets/images/news/food-drive.jpg",
+      "youtube_url": "",
+      "tags": ["charity", "community", "volunteers"]
     },
     {
-        "id": 4,
-        "title": "Technology Innovation Conference",
-        "description": "Local tech startups showcase innovative solutions at the annual technology conference in Addis Ababa.",
-        "category": "Technology",
-        "date": "2024-01-17",
-        "image_url": "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&fit=crop",
-        "youtube_url": "https://www.youtube.com/watch?v=L_jWHffIx5E",
-        "is_featured": true,
-        "author": "Sarah Williams",
-        "read_time": "6 min"
+      "id": 5,
+      "title": "New Farmers Market Opens Downtown",
+      "date": "2024-01-08",
+      "category": "Business",
+      "author": "David Williams",
+      "summary": "Weekly farmers market brings fresh local produce and artisanal goods to the city center.",
+      "image_url": "/assets/images/news/farmers-market.jpg",
+      "youtube_url": "https://www.youtube.com/watch?v=lmnopqrstuv",
+      "tags": ["business", "local", "food"]
+    },
+    {
+      "id": 4,
+      "title": "City Council Passes Environmental Initiative",
+      "date": "2024-01-05",
+      "category": "Politics",
+      "author": "Jennifer Lee",
+      "summary": "New legislation aims to reduce carbon emissions by 30% by 2030 through various sustainability programs.",
+      "image_url": "/assets/images/news/environment.jpg",
+      "youtube_url": "",
+      "tags": ["politics", "environment", "sustainability"]
+    },
+    {
+      "id": 3,
+      "title": "Local Artist Receives National Recognition",
+      "date": "2024-01-03",
+      "category": "Arts",
+      "author": "Robert Taylor",
+      "summary": "Maria Rodriguez's mural series selected for prestigious national arts exhibition.",
+      "image_url": "/assets/images/news/artist.jpg",
+      "youtube_url": "https://www.youtube.com/watch?v=yzabc123456",
+      "tags": ["arts", "culture", "achievement"]
+    },
+    {
+      "id": 2,
+      "title": "New Public Transportation Routes Announced",
+      "date": "2024-01-01",
+      "category": "Transportation",
+      "author": "Lisa Anderson",
+      "summary": "Expanded bus service to connect underserved neighborhoods with city center starting March 2024.",
+      "image_url": "/assets/images/news/bus-service.jpg",
+      "youtube_url": "",
+      "tags": ["transportation", "infrastructure", "public service"]
+    },
+    {
+      "id": 1,
+      "title": "Year in Review: 2023 Highlights",
+      "date": "2023-12-30",
+      "category": "Special",
+      "author": "Editorial Staff",
+      "summary": "Looking back at the most memorable moments and stories that shaped our community in 2023.",
+      "image_url": "/assets/images/news/year-review.jpg",
+      "youtube_url": "https://www.youtube.com/watch?v=year2023review",
+      "tags": ["year in review", "highlights", "2023"]
     }
-]
+  ]
+}

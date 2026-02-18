@@ -1,45 +1,129 @@
-[
+{
+  "metadata": {
+    "total_items": 10,
+    "section": "programs",
+    "last_updated": "2024-01-15"
+  },
+  "items": [
     {
-        "id": 1,
-        "name": "Morning News Bulletin",
-        "description": "Daily morning news update covering local and international headlines.",
-        "category": "News",
-        "episode": "45",
-        "air_date": "2024-01-20",
-        "image_url": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&fit=crop",
-        "youtube_url": "https://www.youtube.com/watch?v=7wtfhZwyrcc",
-        "duration": "60"
+      "id": 10,
+      "title": "Morning Coffee Chat",
+      "host": "Emma Thompson",
+      "schedule": "Weekdays 7:00 AM - 9:00 AM",
+      "category": "Talk Show",
+      "description": "Start your day with lively conversation, weather updates, and interviews with local personalities.",
+      "image_url": "/assets/images/programs/morning-coffee.jpg",
+      "youtube_url": "https://www.youtube.com/watch?v=morningcoffee123",
+      "featured_episode": "Interview with Mayor Williams",
+      "tags": ["morning", "talk", "lifestyle"]
     },
     {
-        "id": 2,
-        "name": "Cultural Heritage Documentary",
-        "description": "Explore Ethiopia's rich cultural heritage and historical sites in this special documentary series.",
-        "category": "Documentary",
-        "episode": "12",
-        "air_date": "2024-01-19",
-        "image_url": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=800&fit=crop",
-        "youtube_url": "https://www.youtube.com/watch?v=LDU_Txk06tM",
-        "duration": "90"
+      "id": 9,
+      "title": "Tech Talk Tuesday",
+      "host": "Alex Rivera",
+      "schedule": "Tuesdays 7:00 PM - 8:00 PM",
+      "category": "Technology",
+      "description": "Weekly discussion on the latest tech trends, gadget reviews, and digital lifestyle tips.",
+      "image_url": "/assets/images/programs/tech-talk.jpg",
+      "youtube_url": "https://www.youtube.com/watch?v=techtalk456",
+      "featured_episode": "AI in Everyday Life",
+      "tags": ["technology", "gadgets", "innovation"]
     },
     {
-        "id": 3,
-        "name": "Business Today",
-        "description": "In-depth analysis of business and economic developments in Ethiopia and Africa.",
-        "category": "Talk Show",
-        "air_date": "2024-01-18",
-        "image_url": "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&fit=crop",
-        "youtube_url": "https://www.youtube.com/watch?v=qfZcRBvue-c",
-        "duration": "45"
+      "id": 8,
+      "title": "Gardeners' Corner",
+      "host": "Patricia Green",
+      "schedule": "Saturdays 10:00 AM - 11:00 AM",
+      "category": "Lifestyle",
+      "description": "Expert advice on gardening, plant care, and sustainable landscaping for all seasons.",
+      "image_url": "/assets/images/programs/gardeners-corner.jpg",
+      "youtube_url": "https://www.youtube.com/watch?v=garden789",
+      "featured_episode": "Spring Planting Guide",
+      "tags": ["gardening", "nature", "sustainable"]
     },
     {
-        "id": 4,
-        "name": "Sports Highlights",
-        "description": "Weekly sports roundup featuring highlights from local and international competitions.",
-        "category": "Sports",
-        "episode": "32",
-        "air_date": "2024-01-17",
-        "image_url": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&fit=crop",
-        "youtube_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        "duration": "50"
+      "id": 7,
+      "title": "Health & Wellness Hour",
+      "host": "Dr. Sarah Mitchell",
+      "schedule": "Thursdays 6:00 PM - 7:00 PM",
+      "category": "Health",
+      "description": "Expert insights on physical and mental health, nutrition, and wellness practices.",
+      "image_url": "/assets/images/programs/health-wellness.jpg",
+      "youtube_url": "https://www.youtube.com/watch?v=health321",
+      "featured_episode": "Managing Stress in Modern Life",
+      "tags": ["health", "wellness", "fitness"]
+    },
+    {
+      "id": 6,
+      "title": "Jazz Night",
+      "host": "Marcus Brown",
+      "schedule": "Fridays 9:00 PM - 11:00 PM",
+      "category": "Music",
+      "description": "Smooth jazz and conversations with local and visiting jazz musicians.",
+      "image_url": "/assets/images/programs/jazz-night.jpg",
+      "youtube_url": "https://www.youtube.com/watch?v=jazz654",
+      "featured_episode": "Tribute to Miles Davis",
+      "tags": ["music", "jazz", "entertainment"]
+    },
+    {
+      "id": 5,
+      "title": "Youth Sports Roundup",
+      "host": "Coach Mike Johnson",
+      "schedule": "Sundays 4:00 PM - 5:00 PM",
+      "category": "Sports",
+      "description": "Highlights and interviews from local youth sports leagues and school competitions.",
+      "image_url": "/assets/images/programs/youth-sports.jpg",
+      "youtube_url": "https://www.youtube.com/watch?v=sports987",
+      "featured_episode": "Championship Preview",
+      "tags": ["sports", "youth", "community"]
+    },
+    {
+      "id": 4,
+      "title": "Cooking with Chef Maria",
+      "host": "Chef Maria Santos",
+      "schedule": "Wednesdays 5:00 PM - 6:00 PM",
+      "category": "Cooking",
+      "description": "Easy-to-follow recipes using local ingredients and seasonal produce.",
+      "image_url": "/assets/images/programs/cooking-show.jpg",
+      "youtube_url": "https://www.youtube.com/watch?v=cooking456",
+      "featured_episode": "Quick Weeknight Dinners",
+      "tags": ["cooking", "food", "recipes"]
+    },
+    {
+      "id": 3,
+      "title": "Local Business Spotlight",
+      "host": "James Wilson",
+      "schedule": "Mondays 1:00 PM - 2:00 PM",
+      "category": "Business",
+      "description": "Profiles of local entrepreneurs and businesses making a difference in our community.",
+      "image_url": "/assets/images/programs/business-spotlight.jpg",
+      "youtube_url": "https://www.youtube.com/watch?v=business789",
+      "featured_episode": "Downtown Revival",
+      "tags": ["business", "entrepreneurship", "local"]
+    },
+    {
+      "id": 2,
+      "title": "Book Club Live",
+      "host": "Rebecca Liu",
+      "schedule": "Last Thursday monthly 7:00 PM",
+      "category": "Literature",
+      "description": "Monthly book discussions with authors and local literary enthusiasts.",
+      "image_url": "/assets/images/programs/book-club.jpg",
+      "youtube_url": "https://www.youtube.com/watch?v=books234",
+      "featured_episode": "Interview with Local Author",
+      "tags": ["books", "literature", "discussion"]
+    },
+    {
+      "id": 1,
+      "title": "Community Bulletin Board",
+      "host": "Various",
+      "schedule": "Daily 12:00 PM - 12:30 PM",
+      "category": "Community",
+      "description": "Announcements of community events, volunteer opportunities, and public service information.",
+      "image_url": "/assets/images/programs/community-bulletin.jpg",
+      "youtube_url": "",
+      "featured_episode": "Holiday Events Calendar",
+      "tags": ["community", "announcements", "events"]
     }
-]
+  ]
+}

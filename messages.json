@@ -1,1 +1,76 @@
-[]
+{
+  "metadata": {
+    "total_items": 6,
+    "section": "messages",
+    "last_updated": "2024-01-15",
+    "note": "This file stores contact form submissions"
+  },
+  "items": [
+    {
+      "id": 6,
+      "name": "Jennifer Martinez",
+      "email": "jennifer.m@email.com",
+      "phone": "(555) 234-5678",
+      "subject": "Program Suggestion",
+      "category": "Programming",
+      "message": "I would love to see a program about local gardening and sustainable living. There's so much interest in this topic in our community.",
+      "date": "2024-01-15T10:30:00Z",
+      "status": "unread"
+    },
+    {
+      "id": 5,
+      "name": "Robert Chen",
+      "email": "robert.c@workmail.com",
+      "phone": "",
+      "subject": "Technical Issue with Live Stream",
+      "category": "Technical",
+      "message": "The live stream was buffering constantly during the council meeting last night. Is there a known issue?",
+      "date": "2024-01-14T22:15:00Z",
+      "status": "read"
+    },
+    {
+      "id": 4,
+      "name": "Maria Sanchez",
+      "email": "maria.s@family.com",
+      "phone": "(555) 876-5432",
+      "subject": "Volunteer Opportunity",
+      "category": "Volunteer",
+      "message": "I would like to volunteer for the community events team. I have experience in event planning and coordination.",
+      "date": "2024-01-13T15:45:00Z",
+      "status": "replied"
+    },
+    {
+      "id": 3,
+      "name": "David Kim",
+      "email": "david.k@business.org",
+      "phone": "(555) 345-6789",
+      "subject": "Advertising Inquiry",
+      "category": "Business",
+      "message": "I'd like information about advertising rates and sponsorship opportunities for my local restaurant.",
+      "date": "2024-01-12T09:20:00Z",
+      "status": "read"
+    },
+    {
+      "id": 2,
+      "name": "Lisa Thompson",
+      "email": "lisa.t@school.edu",
+      "phone": "(555) 456-7890",
+      "subject": "News Correction",
+      "category": "News",
+      "message": "The article about the school science competition misspelled our principal's name. It's Dr. Williamson, not Dr. Wilson.",
+      "date": "2024-01-10T14:30:00Z",
+      "status": "replied"
+    },
+    {
+      "id": 1,
+      "name": "James Wilson",
+      "email": "james.w@community.org",
+      "phone": "(555) 567-8901",
+      "subject": "Partnership Proposal",
+      "category": "Partnership",
+      "message": "Our non-profit would like to propose a partnership for a community awareness campaign.",
+      "date": "2024-01-08T11:00:00Z",
+      "status": "archived"
+    }
+  ]
+}
