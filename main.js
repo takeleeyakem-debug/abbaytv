@@ -1,280 +1,414 @@
-// ==================================================
-// ABBAY TV ETHIOPIA - MAIN JAVASCRIPT
-// ==================================================
+/* ==================================================
+   ABBAY TV ETHIOPIA - MAIN APPLICATION LOGIC
+   Black & Gold | Instagram Style | Full Functionality
+   ================================================== */
 
-// Global variables
-let siteSettings = {};
-let allData = {
+// ===== GLOBAL STATE =====
+const AppState = {
+    settings: null,
     news: [],
     programs: [],
     live: [],
-    jobs: []
+    jobs: [],
+    currentSearch: '',
+    searchResults: [],
+    menuOpen: false,
+    searchOpen: false
 };
 
-// ==================================================
-// UTILITY FUNCTIONS
-// ==================================================
+// ===== INITIALIZATION =====
+document.addEventListener('DOMContentLoaded', () => {
+    initializeApp();
+    setupEventListeners();
+});
 
-// Sort items by ID descending (newest first)
-const sortByIdDesc = (items) => {
-    return [...items].sort((a, b) => b.id - a.id);
-};
-
-// Format date
-const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('en-US', options);
-};
-
-// Extract YouTube video ID from URL
-const extractYoutubeId = (url) => {
-    if (!url) return null;
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-    const match = url.match(regExp);
-    return (match && match[2].length === 11) ? match[2] : null;
-};
-
-// Get YouTube embed URL
-const getYoutubeEmbedUrl = (url) => {
-    const videoId = extractYoutubeId(url);
-    return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
-};
-
-// Handle missing images
-const handleImageError = (img) => {
-    img.src = 'https://via.placeholder.com/300x200?text=ABBAY+TV';
-    img.onerror = null;
-};
-
-// ==================================================
-// FETCH FUNCTIONS
-// ==================================================
-
-// Load update.json first
-async function loadSiteSettings() {
+async function initializeApp() {
     try {
-        const response = await fetch('update.json');
-        if (!response.ok) throw new Error('Failed to load site settings');
-        siteSettings = await response.json();
-        console.log('Site settings loaded:', siteSettings);
-        return siteSettings;
+        await loadSiteSettings();
+        await loadAllContent();
+        setupSearchFunctionality();
     } catch (error) {
-        console.error('Error loading site settings:', error);
-        // Default settings if file not found
-        siteSettings = {
-            sort_order: "desc",
-            sort_by: "id",
-            homepage: {
-                latest_news_limit: 6,
-                latest_programs_limit: 4,
-                latest_jobs_limit: 3,
-                show_live_only_if_active: true
-            },
-            features_is_newest: true,
-            site_status: "online",
-            last_updated: new Date().toISOString().split('T')[0]
-        };
-        return siteSettings;
+        console.error('Init error:', error);
+        showErrorMessage('Failed to load content');
     }
 }
 
-// Load JSON data
-async function loadJSON(filename) {
+// ===== LOAD SITE SETTINGS =====
+async function loadSiteSettings() {
+    try {
+        const response = await fetch('update.json');
+        if (!response.ok) throw new Error('Settings not found');
+        AppState.settings = await response.json();
+    } catch (error) {
+        console.warn('Using default settings');
+        AppState.settings = {
+            sort_order: "desc",
+            homepage: {
+                latest_news_limit: 6,
+                latest_programs_limit: 4,
+                latest_jobs_limit: 3
+            }
+        };
+    }
+}
+
+// ===== LOAD ALL CONTENT =====
+async function loadAllContent() {
+    const [news, programs, live, jobs] = await Promise.all([
+        fetchJSON('news.json'),
+        fetchJSON('programs.json'),
+        fetchJSON('live.json'),
+        fetchJSON('jobs.json')
+    ]);
+    
+    AppState.news = sortByNewest(news);
+    AppState.programs = sortByNewest(programs);
+    AppState.live = sortByNewest(live);
+    AppState.jobs = sortByNewest(jobs);
+    
+    console.log('Content loaded:', {
+        news: AppState.news.length,
+        programs: AppState.programs.length,
+        live: AppState.live.length,
+        jobs: AppState.jobs.length
+    });
+}
+
+async function fetchJSON(filename) {
     try {
         const response = await fetch(filename);
-        if (!response.ok) throw new Error(`Failed to load ${filename}`);
+        if (!response.ok) return [];
         const data = await response.json();
-        
-        // Handle different JSON structures
-        if (data.items) {
-            return sortByIdDesc(data.items);
-        } else if (Array.isArray(data)) {
-            return sortByIdDesc(data);
-        } else {
-            return [];
-        }
+        return data.items || data;
     } catch (error) {
         console.error(`Error loading ${filename}:`, error);
         return [];
     }
 }
 
-// ==================================================
-// RENDER FUNCTIONS
-// ==================================================
-
-// Render news cards
-function renderNewsCards(newsItems, containerId, limit = null) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-
-    let itemsToRender = newsItems;
-    if (limit) {
-        itemsToRender = newsItems.slice(0, limit);
-    }
-
-    if (itemsToRender.length === 0) {
-        container.innerHTML = '<div class="no-items">No news available</div>';
-        return;
-    }
-
-    container.innerHTML = itemsToRender.map(item => {
-        const youtubeEmbed = item.youtube_url ? getYoutubeEmbedUrl(item.youtube_url) : null;
-        
-        return `
-            <div class="card">
-                <div class="card-media">
-                    <img src="${item.image_url || 'https://via.placeholder.com/300x200?text=ABBAY+TV+News'}" 
-                         alt="${item.title}"
-                         onerror="handleImageError(this)">
-                    ${youtubeEmbed ? `
-                        <a href="${item.youtube_url}" target="_blank" class="card-video-overlay">
-                            <div class="play-icon">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </a>
-                    ` : ''}
-                </div>
-                <div class="card-content">
-                    <span class="card-category">${item.category || 'News'}</span>
-                    <h3 class="card-title">
-                        <a href="${item.youtube_url || '#'}" target="${item.youtube_url ? '_blank' : '_self'}">
-                            ${item.title}
-                        </a>
-                    </h3>
-                    <div class="card-meta">
-                        <span><i class="far fa-calendar"></i> ${formatDate(item.date || item.published_date)}</span>
-                        ${item.author ? `<span><i class="far fa-user"></i> ${item.author}</span>` : ''}
-                    </div>
-                    <p class="card-description">${item.summary || item.description || item.content?.substring(0, 150)}...</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn-read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        `;
-    }).join('');
+function sortByNewest(items) {
+    return [...items].sort((a, b) => (b.id || 0) - (a.id || 0));
 }
 
-// Render program cards
-function renderProgramCards(programItems, containerId, limit = null) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-
-    let itemsToRender = programItems;
-    if (limit) {
-        itemsToRender = programItems.slice(0, limit);
+// ===== SEARCH FUNCTIONALITY =====
+function setupSearchFunctionality() {
+    const globalSearch = document.getElementById('globalSearch');
+    const mobileSearch = document.getElementById('mobileSearch');
+    const clearBtn = document.getElementById('clearSearch');
+    const searchResults = document.getElementById('searchResults');
+    
+    if (globalSearch) {
+        globalSearch.addEventListener('input', (e) => {
+            const query = e.target.value.trim();
+            AppState.currentSearch = query;
+            
+            if (query.length < 2) {
+                searchResults.classList.remove('active');
+                if (clearBtn) clearBtn.classList.remove('visible');
+                return;
+            }
+            
+            if (clearBtn) clearBtn.classList.add('visible');
+            performSearch(query);
+        });
     }
-
-    if (itemsToRender.length === 0) {
-        container.innerHTML = '<div class="no-items">No programs available</div>';
-        return;
+    
+    if (mobileSearch) {
+        mobileSearch.addEventListener('input', (e) => {
+            performSearch(e.target.value.trim(), true);
+        });
     }
-
-    container.innerHTML = itemsToRender.map(item => {
-        const youtubeEmbed = item.youtube_url ? getYoutubeEmbedUrl(item.youtube_url) : null;
-        
-        return `
-            <div class="card">
-                <div class="card-media">
-                    <img src="${item.image_url || 'https://via.placeholder.com/300x200?text=ABBAY+TV+Programs'}" 
-                         alt="${item.name || item.title}"
-                         onerror="handleImageError(this)">
-                    ${youtubeEmbed ? `
-                        <a href="${item.youtube_url}" target="_blank" class="card-video-overlay">
-                            <div class="play-icon">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </a>
-                    ` : ''}
-                </div>
-                <div class="card-content">
-                    <span class="card-category">${item.category || 'Program'}</span>
-                    <h3 class="card-title">
-                        <a href="${item.youtube_url || '#'}" target="${item.youtube_url ? '_blank' : '_self'}">
-                            ${item.name || item.title}
-                        </a>
-                    </h3>
-                    ${item.host ? `
-                        <div class="card-meta">
-                            <span><i class="far fa-user"></i> Host: ${item.host}</span>
-                        </div>
-                    ` : ''}
-                    <div class="card-meta">
-                        <span><i class="far fa-clock"></i> ${item.schedule || item.air_date || 'Weekly'}</span>
-                    </div>
-                    <p class="card-description">${item.description || item.summary || ''}</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn-read-more">Watch Now <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        `;
-    }).join('');
+    
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            if (globalSearch) {
+                globalSearch.value = '';
+                globalSearch.focus();
+            }
+            clearBtn.classList.remove('visible');
+            searchResults.classList.remove('active');
+            AppState.currentSearch = '';
+        });
+    }
 }
 
-// Render job cards
-function renderJobCards(jobItems, containerId, limit = null) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-
-    let itemsToRender = jobItems;
-    if (limit) {
-        itemsToRender = jobItems.slice(0, limit);
-    }
-
-    if (itemsToRender.length === 0) {
-        container.innerHTML = '<div class="no-items">No jobs available</div>';
+function performSearch(query, isMobile = false) {
+    if (query.length < 2) {
+        if (!isMobile) {
+            document.getElementById('searchResults').classList.remove('active');
+        } else {
+            renderMobileSearchResults([]);
+        }
         return;
     }
+    
+    const results = [];
+    const searchLower = query.toLowerCase();
+    
+    // Search in news
+    AppState.news.forEach(item => {
+        if (matchesSearch(item, searchLower)) {
+            results.push({
+                ...item,
+                type: 'news',
+                url: `news.html?id=${item.id}`
+            });
+        }
+    });
+    
+    // Search in programs
+    AppState.programs.forEach(item => {
+        if (matchesSearch(item, searchLower)) {
+            results.push({
+                ...item,
+                type: 'program',
+                url: `programs.html?id=${item.id}`
+            });
+        }
+    });
+    
+    // Search in live
+    AppState.live.forEach(item => {
+        if (matchesSearch(item, searchLower)) {
+            results.push({
+                ...item,
+                type: 'live',
+                url: `live.html?id=${item.id}`
+            });
+        }
+    });
+    
+    // Search in jobs
+    AppState.jobs.forEach(item => {
+        if (matchesSearch(item, searchLower)) {
+            results.push({
+                ...item,
+                type: 'job',
+                url: `jobs.html?id=${item.id}`
+            });
+        }
+    });
+    
+    AppState.searchResults = results.slice(0, 10); // Limit to 10 results
+    
+    if (!isMobile) {
+        renderSearchResults();
+    } else {
+        renderMobileSearchResults(results);
+    }
+}
 
-    container.innerHTML = itemsToRender.map(item => `
-        <div class="job-card">
-            <div class="job-content">
-                <div class="job-header">
-                    <h3 class="job-title">${item.title}</h3>
-                    <span class="job-type">${item.type || item.job_type || 'Full-time'}</span>
+function matchesSearch(item, searchLower) {
+    const fields = [
+        item.title,
+        item.name,
+        item.description,
+        item.summary,
+        item.content,
+        item.category,
+        item.host,
+        item.company
+    ];
+    
+    return fields.some(field => 
+        field && field.toLowerCase().includes(searchLower)
+    );
+}
+
+function renderSearchResults() {
+    const container = document.getElementById('searchResults');
+    if (!container) return;
+    
+    if (AppState.searchResults.length === 0) {
+        container.innerHTML = `
+            <div class="search-result-item">
+                <div class="search-result-title">No results found</div>
+                <div class="search-result-category">Try different keywords</div>
+            </div>
+        `;
+        container.classList.add('active');
+        return;
+    }
+    
+    container.innerHTML = AppState.searchResults.map(result => `
+        <div class="search-result-item" onclick="window.location.href='${result.url}'">
+            <div class="search-result-title">${escapeHtml(result.title || result.name)}</div>
+            <div class="search-result-category">
+                <span style="color: var(--gold);">${result.type}</span> • ${result.category || ''}
+            </div>
+            <div class="search-result-type">${truncate(result.description || result.summary || '', 60)}</div>
+        </div>
+    `).join('');
+    
+    container.classList.add('active');
+}
+
+function renderMobileSearchResults(results) {
+    const container = document.getElementById('mobileSearchResults');
+    if (!container) return;
+    
+    if (results.length === 0) {
+        container.innerHTML = `
+            <div class="error-state">
+                <i class="fas fa-search"></i>
+                <p>No results found</p>
+            </div>
+        `;
+        return;
+    }
+    
+    container.innerHTML = results.slice(0, 20).map(result => `
+        <div class="search-result-item" onclick="window.location.href='${result.url}'">
+            <div class="search-result-title">${escapeHtml(result.title || result.name)}</div>
+            <div class="search-result-category">${result.type} • ${result.category || ''}</div>
+        </div>
+    `).join('');
+}
+
+// ===== HOMEPAGE RENDERING =====
+function loadHomepage() {
+    const settings = AppState.settings?.homepage || {};
+    
+    // Render live stories
+    renderLiveStories();
+    
+    // Render news feed
+    renderNewsFeed(settings.latest_news_limit || 6);
+    
+    // Render programs feed
+    renderProgramsFeed(settings.latest_programs_limit || 4);
+    
+    // Render jobs feed
+    renderJobsFeed(settings.latest_jobs_limit || 3);
+}
+
+function renderLiveStories() {
+    const container = document.getElementById('liveStories');
+    if (!container) return;
+    
+    const liveItems = AppState.live.filter(item => item.is_live);
+    
+    if (liveItems.length === 0) {
+        document.getElementById('liveStoriesSection').style.display = 'none';
+        return;
+    }
+    
+    document.getElementById('liveStoriesSection').style.display = 'block';
+    
+    container.innerHTML = liveItems.map(item => `
+        <div class="story-item" onclick="window.location.href='live.html'">
+            <div class="story-avatar live">
+                <img src="${item.image_url || 'https://via.placeholder.com/80x80?text=LIVE'}" 
+                     alt="${item.title}"
+                     onerror="this.src='https://via.placeholder.com/80x80?text=ABBAY'">
+            </div>
+            <div class="story-title">${truncate(item.title, 15)}</div>
+            <div class="live-indicator">LIVE</div>
+        </div>
+    `).join('');
+}
+
+function renderNewsFeed(limit) {
+    const container = document.getElementById('newsFeed');
+    if (!container) return;
+    
+    const news = AppState.news.slice(0, limit);
+    
+    container.innerHTML = news.map(item => `
+        <div class="feed-card" onclick="window.location.href='news.html?id=${item.id}'">
+            <img src="${item.image_url || 'https://via.placeholder.com/300x300?text=NEWS'}" 
+                 alt="${item.title}"
+                 onerror="this.src='https://via.placeholder.com/300x300?text=ABBAY'">
+            ${item.youtube_url ? '<div class="video-badge"><i class="fas fa-play"></i></div>' : ''}
+            <div class="feed-card-overlay">
+                <div class="feed-card-title">${truncate(item.title, 30)}</div>
+                <div class="feed-card-meta">
+                    <i class="far fa-calendar"></i> ${formatDate(item.date)}
                 </div>
-                
-                <div class="job-details">
-                    <div class="job-detail-item">
-                        <i class="fas fa-building"></i>
-                        <span>${item.company || 'ABBAY TV Ethiopia'}</span>
-                    </div>
-                    <div class="job-detail-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>${item.location || 'Addis Ababa'}</span>
-                    </div>
-                    <div class="job-detail-item">
-                        <i class="fas fa-money-bill-wave"></i>
-                        <span>${item.salary || 'Negotiable'}</span>
-                    </div>
-                    <div class="job-detail-item">
-                        <i class="far fa-calendar-alt"></i>
-                        <span>Posted: ${formatDate(item.posted_date || item.date)}</span>
-                    </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderProgramsFeed(limit) {
+    const container = document.getElementById('programsFeed');
+    if (!container) return;
+    
+    const programs = AppState.programs.slice(0, limit);
+    
+    container.innerHTML = programs.map(item => `
+        <div class="feed-card" onclick="window.location.href='programs.html?id=${item.id}'">
+            <img src="${item.image_url || 'https://via.placeholder.com/300x300?text=PROGRAM'}" 
+                 alt="${item.name || item.title}"
+                 onerror="this.src='https://via.placeholder.com/300x300?text=ABBAY'">
+            ${item.youtube_url ? '<div class="video-badge"><i class="fas fa-play"></i></div>' : ''}
+            <div class="feed-card-overlay">
+                <div class="feed-card-title">${truncate(item.name || item.title, 30)}</div>
+                <div class="feed-card-meta">
+                    <i class="far fa-clock"></i> ${item.schedule || 'Weekly'}
                 </div>
-                
-                <div class="job-description">
-                    <p>${item.description || ''}</p>
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderJobsFeed(limit) {
+    const container = document.getElementById('jobsFeed');
+    if (!container) return;
+    
+    const jobs = AppState.jobs.slice(0, limit);
+    
+    container.innerHTML = jobs.map(item => `
+        <div class="job-mini-card" onclick="window.location.href='jobs.html?id=${item.id}'">
+            <div class="job-mini-info">
+                <h4>${item.title}</h4>
+                <p><i class="fas fa-building"></i> ${item.company || 'ABBAY TV'}</p>
+                <p><i class="fas fa-map-marker-alt"></i> ${item.location || 'Addis Ababa'}</p>
+            </div>
+            <div class="job-mini-type">${item.type || 'Full-time'}</div>
+        </div>
+    `).join('');
+}
+
+// ===== NEWS PAGE RENDERING =====
+function loadNewsPage() {
+    renderNewsGrid(AppState.news);
+    setupCategoryFilters();
+}
+
+function renderNewsGrid(newsItems) {
+    const container = document.getElementById('newsContainer');
+    if (!container) return;
+    
+    if (newsItems.length === 0) {
+        container.innerHTML = `
+            <div class="error-state">
+                <i class="fas fa-newspaper"></i>
+                <p>No news available</p>
+            </div>
+        `;
+        return;
+    }
+    
+    container.innerHTML = newsItems.map(item => `
+        <div class="news-card">
+            <div class="news-card-media">
+                <img src="${item.image_url || 'https://via.placeholder.com/400x225?text=NEWS'}" 
+                     alt="${item.title}"
+                     onerror="this.src='https://via.placeholder.com/400x225?text=ABBAY+TV'">
+                <span class="news-card-category">${item.category || 'News'}</span>
+                ${item.youtube_url ? '<div class="video-badge"><i class="fas fa-play"></i></div>' : ''}
+            </div>
+            <div class="news-card-content">
+                <h3 class="news-card-title">${item.title}</h3>
+                <div class="news-card-meta">
+                    <span><i class="far fa-calendar"></i> ${formatDate(item.date)}</span>
+                    ${item.author ? `<span><i class="far fa-user"></i> ${item.author}</span>` : ''}
                 </div>
-                
-                ${item.requirements ? `
-                    <div class="job-requirements">
-                        <h4>Requirements:</h4>
-                        <ul>
-                            ${item.requirements.map(req => `<li>${req}</li>`).join('')}
-                        </ul>
-                    </div>
-                ` : ''}
-                
-                <div class="job-footer">
-                    <div class="deadline">
-                        <i class="far fa-hourglass"></i>
-                        Deadline: ${formatDate(item.deadline || '2024-12-31')}
-                    </div>
-                    <a href="${item.apply_link || '#'}" class="btn-apply">
-                        Apply Now <i class="fas fa-paper-plane"></i>
+                <p class="news-card-excerpt">${truncate(item.description || item.summary || item.content || '', 120)}</p>
+                <div class="news-card-footer">
+                    <a href="${item.youtube_url || '#'}" class="read-more" target="${item.youtube_url ? '_blank' : '_self'}">
+                        ${item.youtube_url ? 'Watch Video' : 'Read More'} <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -282,224 +416,204 @@ function renderJobCards(jobItems, containerId, limit = null) {
     `).join('');
 }
 
-// Render live streams
-function renderLiveStreams(liveItems, containerId) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-
-    const liveStreams = liveItems.filter(item => item.is_live === true);
-
-    if (liveStreams.length === 0) {
-        document.getElementById('live-section').style.display = 'none';
-        return;
-    }
-
-    document.getElementById('live-section').style.display = 'block';
-
-    container.innerHTML = liveStreams.map(item => {
-        const embedUrl = item.youtube_url ? 
-            (item.youtube_url.includes('embed') ? item.youtube_url : getYoutubeEmbedUrl(item.youtube_url)) : 
-            null;
-
-        return `
-            <div class="live-card">
-                <div class="live-embed">
-                    <div class="live-badge">
-                        <i class="fas fa-circle live-icon"></i> LIVE NOW
-                    </div>
-                    ${embedUrl ? `
-                        <iframe 
-                            src="${embedUrl}" 
-                            frameborder="0" 
-                            allowfullscreen>
-                        </iframe>
-                    ` : `
-                        <img src="${item.image_url || 'https://via.placeholder.com/640x360?text=LIVE+STREAM'}" 
-                             alt="${item.title}"
-                             style="width:100%; height:100%; object-fit:cover;">
-                    `}
-                </div>
-                <div class="card-content">
-                    <h3>${item.title}</h3>
-                    ${item.description ? `<p>${item.description}</p>` : ''}
-                </div>
-            </div>
-        `;
-    }).join('');
+function setupCategoryFilters() {
+    const tabs = document.querySelectorAll('.category-tab');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            const category = tab.dataset.category;
+            if (category === 'all') {
+                renderNewsGrid(AppState.news);
+            } else {
+                const filtered = AppState.news.filter(item => item.category === category);
+                renderNewsGrid(filtered);
+            }
+        });
+    });
 }
 
-// Render upcoming live streams
-function renderUpcomingLive(liveItems, containerId) {
-    const container = document.getElementById(containerId);
+// ===== PROGRAMS PAGE RENDERING =====
+function loadProgramsPage() {
+    const container = document.getElementById('programsContainer');
     if (!container) return;
+    
+    if (AppState.programs.length === 0) {
+        container.innerHTML = `
+            <div class="error-state">
+                <i class="fas fa-tv"></i>
+                <p>No programs available</p>
+            </div>
+        `;
+        return;
+    }
+    
+    container.innerHTML = AppState.programs.map(item => `
+        <div class="news-card">
+            <div class="news-card-media">
+                <img src="${item.image_url || 'https://via.placeholder.com/400x225?text=PROGRAM'}" 
+                     alt="${item.name || item.title}"
+                     onerror="this.src='https://via.placeholder.com/400x225?text=ABBAY+TV'">
+                <span class="news-card-category">${item.category || 'Program'}</span>
+                ${item.youtube_url ? '<div class="video-badge"><i class="fas fa-play"></i></div>' : ''}
+            </div>
+            <div class="news-card-content">
+                <h3 class="news-card-title">${item.name || item.title}</h3>
+                <div class="news-card-meta">
+                    ${item.host ? `<span><i class="fas fa-microphone"></i> ${item.host}</span>` : ''}
+                    <span><i class="far fa-clock"></i> ${item.schedule || 'Weekly'}</span>
+                </div>
+                <p class="news-card-excerpt">${truncate(item.description || '', 120)}</p>
+                <div class="news-card-footer">
+                    <a href="${item.youtube_url || '#'}" class="read-more" target="${item.youtube_url ? '_blank' : '_self'}">
+                        ${item.youtube_url ? 'Watch Episode' : 'View Schedule'} <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
 
-    const upcoming = liveItems.filter(item => !item.is_live);
+// ===== LIVE PAGE RENDERING =====
+function loadLivePage() {
+    const liveNowContainer = document.getElementById('liveNowContainer');
+    const upcomingContainer = document.getElementById('upcomingContainer');
+    
+    if (liveNowContainer) {
+        const liveNow = AppState.live.filter(item => item.is_live);
+        if (liveNow.length > 0) {
+            renderLiveNow(liveNow[0], liveNowContainer);
+        } else {
+            document.getElementById('liveNowSection').style.display = 'none';
+        }
+    }
+    
+    if (upcomingContainer) {
+        const upcoming = AppState.live.filter(item => !item.is_live);
+        renderUpcomingLive(upcoming, upcomingContainer);
+    }
+}
 
+function renderLiveNow(liveItem, container) {
+    const embedUrl = liveItem.youtube_url?.replace('watch?v=', 'embed/') || '';
+    
+    container.innerHTML = `
+        <div class="live-card">
+            <div class="live-embed">
+                <iframe src="${embedUrl}" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="live-info">
+                <h2>${liveItem.title}</h2>
+                <p>${liveItem.description || 'Live now on ABBAY TV'}</p>
+            </div>
+        </div>
+    `;
+}
+
+function renderUpcomingLive(upcoming, container) {
     if (upcoming.length === 0) {
-        container.innerHTML = '<div class="no-items">No upcoming streams</div>';
+        container.innerHTML = '<div class="error-state">No upcoming streams</div>';
         return;
     }
+    
+    container.innerHTML = upcoming.map(item => `
+        <div class="schedule-item">
+            <div class="schedule-date">
+                <span class="day">${new Date(item.schedule_date).getDate()}</span>
+                <span class="month">${new Date(item.schedule_date).toLocaleString('default', { month: 'short' })}</span>
+            </div>
+            <div class="schedule-content">
+                <h4>${item.title}</h4>
+                <p><i class="far fa-clock"></i> ${new Date(item.schedule_date).toLocaleTimeString()}</p>
+                <p>${truncate(item.description || '', 60)}</p>
+            </div>
+        </div>
+    `).join('');
+}
 
-    container.innerHTML = upcoming.map(item => {
-        const scheduleDate = item.schedule_date ? new Date(item.schedule_date) : new Date();
-        
-        return `
-            <div class="schedule-item">
-                <div class="schedule-date">
-                    <span class="day">${scheduleDate.getDate()}</span>
-                    <span class="month">${scheduleDate.toLocaleString('default', { month: 'short' })}</span>
-                </div>
-                <div class="schedule-content">
-                    <h4>${item.title}</h4>
-                    <p><i class="far fa-clock"></i> ${scheduleDate.toLocaleTimeString()}</p>
-                    ${item.description ? `<p>${item.description}</p>` : ''}
-                </div>
+// ===== JOBS PAGE RENDERING =====
+function loadJobsPage() {
+    const container = document.getElementById('jobsContainer');
+    if (!container) return;
+    
+    if (AppState.jobs.length === 0) {
+        container.innerHTML = `
+            <div class="error-state">
+                <i class="fas fa-briefcase"></i>
+                <p>No jobs available</p>
             </div>
         `;
-    }).join('');
-}
-
-// ==================================================
-=// PAGE SPECIFIC FUNCTIONS
-// ==================================================
-
-// Homepage
-async function loadHomepageContent() {
-    await loadSiteSettings();
-    
-    // Load all data
-    const [news, programs, live, jobs] = await Promise.all([
-        loadJSON('news.json'),
-        loadJSON('programs.json'),
-        loadJSON('live.json'),
-        loadJSON('jobs.json')
-    ]);
-
-    allData = { news, programs, live, jobs };
-
-    // Render sections based on settings
-    const homepageSettings = siteSettings.homepage || {};
-    
-    // Live section
-    renderLiveStreams(live, 'live-container');
-    
-    // News section
-    renderNewsCards(news, 'news-container', homepageSettings.latest_news_limit || 6);
-    
-    // Programs section
-    renderProgramCards(programs, 'programs-container', homepageSettings.latest_programs_limit || 4);
-    
-    // Jobs section
-    renderJobCards(jobs, 'jobs-container', homepageSettings.latest_jobs_limit || 3);
-}
-
-// News page
-async function loadNewsPage() {
-    await loadSiteSettings();
-    
-    const news = await loadJSON('news.json');
-    allData.news = news;
-
-    // Initial render
-    renderNewsCards(news, 'news-container');
-    
-    // Setup category filter
-    const filterSelect = document.getElementById('category-filter');
-    if (filterSelect) {
-        filterSelect.addEventListener('change', (e) => {
-            const category = e.target.value;
-            if (category === 'all') {
-                renderNewsCards(news, 'news-container');
-            } else {
-                const filtered = news.filter(item => item.category === category);
-                renderNewsCards(filtered, 'news-container');
-            }
-        });
+        return;
     }
+    
+    container.innerHTML = AppState.jobs.map(item => `
+        <div class="job-card">
+            <div class="job-header">
+                <h2 class="job-title">${item.title}</h2>
+                <span class="job-type">${item.type || 'Full-time'}</span>
+            </div>
+            
+            <div class="job-details">
+                <div><i class="fas fa-building"></i> ${item.company || 'ABBAY TV'}</div>
+                <div><i class="fas fa-map-marker-alt"></i> ${item.location || 'Addis Ababa'}</div>
+                <div><i class="fas fa-money-bill-wave"></i> ${item.salary || 'Negotiable'}</div>
+                <div><i class="far fa-calendar"></i> Posted: ${formatDate(item.posted_date)}</div>
+            </div>
+            
+            <div class="job-description">
+                <p>${item.description || ''}</p>
+            </div>
+            
+            ${item.requirements ? `
+                <div class="job-requirements">
+                    <h4>Requirements:</h4>
+                    <ul>
+                        ${item.requirements.map(req => `<li>${req}</li>`).join('')}
+                    </ul>
+                </div>
+            ` : ''}
+            
+            <div class="job-footer">
+                <div class="deadline">
+                    <i class="far fa-hourglass"></i> Deadline: ${formatDate(item.deadline)}
+                </div>
+                <a href="${item.apply_link || 'contact.html'}" class="btn-apply">
+                    Apply Now <i class="fas fa-paper-plane"></i>
+                </a>
+            </div>
+        </div>
+    `).join('');
+    
+    setupJobFilters();
 }
 
-// Programs page
-async function loadProgramsPage() {
-    await loadSiteSettings();
-    
-    const programs = await loadJSON('programs.json');
-    allData.programs = programs;
-
-    // Initial render
-    renderProgramCards(programs, 'programs-container');
-    
-    // Setup category filter
-    const filterSelect = document.getElementById('program-filter');
-    if (filterSelect) {
-        filterSelect.addEventListener('change', (e) => {
-            const category = e.target.value;
-            if (category === 'all') {
-                renderProgramCards(programs, 'programs-container');
-            } else {
-                const filtered = programs.filter(item => item.category === category);
-                renderProgramCards(filtered, 'programs-container');
-            }
-        });
-    }
-}
-
-// Live page
-async function loadLivePage() {
-    await loadSiteSettings();
-    
-    const live = await loadJSON('live.json');
-    allData.live = live;
-
-    // Current live streams
-    const currentLive = live.filter(item => item.is_live);
-    if (currentLive.length > 0) {
-        document.getElementById('current-live-section').style.display = 'block';
-        renderLiveStreams(live, 'current-live-container');
-    } else {
-        document.getElementById('current-live-section').style.display = 'none';
-    }
-
-    // Upcoming streams
-    renderUpcomingLive(live, 'upcoming-live-container');
-}
-
-// Jobs page
-async function loadJobsPage() {
-    await loadSiteSettings();
-    
-    const jobs = await loadJSON('jobs.json');
-    allData.jobs = jobs;
-
-    // Initial render
-    renderJobCards(jobs, 'jobs-container');
-    
-    // Setup type filter
-    const filterSelect = document.getElementById('job-type-filter');
+function setupJobFilters() {
+    const filterSelect = document.getElementById('jobTypeFilter');
     if (filterSelect) {
         filterSelect.addEventListener('change', (e) => {
             const type = e.target.value;
             if (type === 'all') {
-                renderJobCards(jobs, 'jobs-container');
+                renderJobsGrid(AppState.jobs);
             } else {
-                const filtered = jobs.filter(item => (item.type || item.job_type) === type);
-                renderJobCards(filtered, 'jobs-container');
+                const filtered = AppState.jobs.filter(item => (item.type || item.job_type) === type);
+                renderJobsGrid(filtered);
             }
         });
     }
 }
 
-// Contact page
+// ===== CONTACT FORM =====
 function initContactForm() {
-    const form = document.getElementById('contact-form');
-    const formMessage = document.getElementById('form-message');
-
+    const form = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-
-            // Get form data
+            
             const formData = {
-                id: Date.now(), // Use timestamp as ID
+                id: Date.now(),
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
@@ -508,60 +622,138 @@ function initContactForm() {
                 date: new Date().toISOString(),
                 status: 'unread'
             };
-
-            try {
-                // In a real static site, you'd need a backend service
-                // For now, we'll simulate success
-                console.log('Message received:', formData);
-                
-                // Show success message
-                formMessage.className = 'form-message success';
-                formMessage.textContent = 'Thank you for your message. We will get back to you soon!';
-                form.reset();
-
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-
-                // Note: In a real static site, you'd need to use a service like Formspree
-                // or Netlify Forms to actually store the message
-
-            } catch (error) {
-                formMessage.className = 'form-message error';
-                formMessage.textContent = 'Sorry, there was an error sending your message. Please try again.';
-                console.error('Error submitting form:', error);
-            }
+            
+            // Save to localStorage (simulate storage)
+            const messages = JSON.parse(localStorage.getItem('abbay_messages') || '[]');
+            messages.push(formData);
+            localStorage.setItem('abbay_messages', JSON.stringify(messages));
+            
+            // Show success
+            formMessage.className = 'form-message success';
+            formMessage.textContent = 'Message sent successfully!';
+            form.reset();
+            
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
         });
     }
 }
 
-// ==================================================
-// MOBILE MENU TOGGLE
-// ==================================================
+// ===== UTILITY FUNCTIONS =====
+function formatDate(dateString) {
+    if (!dateString) return 'Recent';
+    try {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+        });
+    } catch {
+        return dateString;
+    }
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
+function truncate(str, length) {
+    if (!str) return '';
+    if (str.length <= length) return str;
+    return str.substring(0, length) + '...';
+}
 
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
+function escapeHtml(unsafe) {
+    if (!unsafe) return '';
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+function showErrorMessage(message) {
+    const containers = ['newsContainer', 'programsContainer', 'jobsContainer'];
+    containers.forEach(id => {
+        const container = document.getElementById(id);
+        if (container) {
+            container.innerHTML = `
+                <div class="error-state">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>${message}</p>
+                </div>
+            `;
+        }
+    });
+}
+
+// ===== EVENT LISTENERS =====
+function setupEventListeners() {
+    // Menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const closeMenu = document.getElementById('closeMenu');
+    const overlay = document.getElementById('menuOverlay');
+    const sideMenu = document.getElementById('sideMenu');
+    
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
         });
     }
-
-    // Close menu when clicking a link
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+    
+    if (closeMenu) {
+        closeMenu.addEventListener('click', closeSideMenu);
+    }
+    
+    if (overlay) {
+        overlay.addEventListener('click', closeSideMenu);
+    }
+    
+    // Search toggle
+    const searchToggle = document.getElementById('searchToggle');
+    const closeSearch = document.getElementById('closeSearch');
+    const searchOverlay = document.getElementById('searchOverlay');
+    
+    if (searchToggle) {
+        searchToggle.addEventListener('click', () => {
+            searchOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                document.getElementById('mobileSearch')?.focus();
+            }, 300);
         });
+    }
+    
+    if (closeSearch) {
+        closeSearch.addEventListener('click', () => {
+            searchOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeSideMenu();
+            if (searchOverlay) searchOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
-});
+}
 
-// ==================================================
-// GLOBAL ERROR HANDLER FOR IMAGES
-// ==================================================
+function closeSideMenu() {
+    const sideMenu = document.getElementById('sideMenu');
+    const overlay = document.getElementById('menuOverlay');
+    sideMenu.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
 
-window.handleImageError = handleImageError;
+// ===== PAGE-SPECIFIC LOADERS =====
+window.loadHomepage = loadHomepage;
+window.loadNewsPage = loadNewsPage;
+window.loadProgramsPage = loadProgramsPage;
+window.loadLivePage = loadLivePage;
+window.loadJobsPage = loadJobsPage;
+window.initContactForm = initContactForm;

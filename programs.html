@@ -2,67 +2,182 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABBAY TV ETHIOPIA - Programs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>ABBAY TV • Programs</title>
     <link rel="stylesheet" href="general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <img src="https://tse3.mm.bing.net/th/id/OIP.ORz2qWwloYPBTWgHSTnCKAHaHa" alt="ABBAY TV Logo" class="logo">
-                <span class="brand-name">ABBAY TV ETHIOPIA</span>
+<body class="dark-theme">
+    <!-- SIDE MENU -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <div class="menu-close" id="closeMenu">
+                <i class="fas fa-arrow-left"></i>
             </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="programs.html" class="active">Programs</a></li>
-                <li><a href="live.html">Live</a></li>
-                <li><a href="jobs.html">Jobs</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="menu-logo">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.ORz2qWwloYPBTWgHSTnCKAHaHa" alt="ABBAY TV">
+                <span>ABBAY TV</span>
             </div>
         </div>
-    </nav>
-
-    <section class="page-header">
-        <div class="container">
-            <h1>📺 Our Programs</h1>
-            <p>Discover our diverse range of TV programs</p>
+        
+        <div class="menu-search">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="globalSearch" placeholder="Search programs..." autocomplete="off">
+            <button class="search-clear" id="clearSearch"><i class="fas fa-times"></i></button>
         </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="filters">
-                <select id="program-filter" class="filter-select">
-                    <option value="all">All Categories</option>
-                    <option value="News">News</option>
-                    <option value="Talk Show">Talk Show</option>
-                    <option value="Documentary">Documentary</option>
-                    <option value="Entertainment">Entertainment</option>
-                    <option value="Culture">Culture</option>
-                </select>
+        
+        <div class="search-results" id="searchResults"></div>
+        
+        <div class="menu-links">
+            <a href="index.html" class="menu-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="news.html" class="menu-link">
+                <i class="fas fa-newspaper"></i>
+                <span>News</span>
+            </a>
+            <a href="programs.html" class="menu-link active">
+                <i class="fas fa-tv"></i>
+                <span>Programs</span>
+            </a>
+            <a href="live.html" class="menu-link">
+                <i class="fas fa-circle" style="color: #ff0000;"></i>
+                <span>Live</span>
+                <span class="live-badge" id="liveMenuBadge" style="display: none;">NOW</span>
+            </a>
+            <a href="jobs.html" class="menu-link">
+                <i class="fas fa-briefcase"></i>
+                <span>Jobs</span>
+            </a>
+            <a href="contact.html" class="menu-link">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+        
+        <div class="menu-footer">
+            <div class="social-grid">
+                <a href="#" class="social-item"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-item"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-item"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-item"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-item"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-item"><i class="fab fa-tiktok"></i></a>
             </div>
-            <div id="programs-container" class="cards-grid"></div>
+            <p class="copyright">© 2026 ABBAY TV Ethiopia</p>
         </div>
-    </section>
+    </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 ABBAY TV ETHIOPIA. All rights reserved.</p>
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <!-- TOP NAVIGATION -->
+        <header class="top-nav">
+            <div class="nav-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo-text">
+                    <span class="gold">ABBAY</span> PROGRAMS
+                </div>
+            </div>
+            <div class="nav-right">
+                <button class="nav-icon" id="searchToggle">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- PROGRAM HERO / FEATURED -->
+        <div class="program-hero" id="programHero">
+            <div class="program-hero-content">
+                <span class="program-hero-category">Featured Program</span>
+                <h2 class="program-hero-title">ወፈን (WEFEN) - Politics Unplugged</h2>
+                <p class="program-hero-description">In-depth political analysis and debate on Ethiopian and Horn of Africa affairs. Wednesdays 8PM.</p>
+                <button class="program-hero-btn" onclick="window.location.href='live.html'">
+                    <i class="fas fa-play"></i> Watch Latest Episode
+                </button>
+            </div>
         </div>
-    </footer>
+
+        <!-- PROGRAM CATEGORIES -->
+        <div class="program-categories">
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="category-chips">
+                <button class="category-chip active" data-category="all">All</button>
+                <button class="category-chip" data-category="Talk Show">Talk Show</button>
+                <button class="category-chip" data-category="Politics">Politics</button>
+                <button class="category-chip" data-category="Documentary">Documentary</button>
+                <button class="category-chip" data-category="Entertainment">Entertainment</button>
+                <button class="category-chip" data-category="Sports">Sports</button>
+                <button class="category-chip" data-category="Education">Education</button>
+                <button class="category-chip" data-category="Lifestyle">Lifestyle</button>
+                <button class="category-chip" data-category="Business">Business</button>
+                <button class="category-chip" data-category="Culture">Culture</button>
+            </div>
+        </div>
+
+        <!-- PROGRAMS GRID -->
+        <main class="programs-archive">
+            <div class="programs-grid" id="programsContainer">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading programs...</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- PROGRAM SCHEDULE TEASER -->
+        <div class="schedule-teaser">
+            <div class="schedule-teaser-content">
+                <h3>Full Program Schedule</h3>
+                <p>Check out our complete weekly schedule and never miss your favorite shows.</p>
+                <a href="#" class="schedule-link">View Schedule <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- BOTTOM NAVIGATION -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="bottom-nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="news.html" class="bottom-nav-item">
+                <i class="fas fa-newspaper"></i>
+                <span>News</span>
+            </a>
+            <a href="programs.html" class="bottom-nav-item active">
+                <i class="fas fa-tv"></i>
+                <span>Shows</span>
+            </a>
+            <a href="live.html" class="bottom-nav-item">
+                <i class="fas fa-circle" style="color: #ff0000;"></i>
+                <span>Live</span>
+            </a>
+            <a href="jobs.html" class="bottom-nav-item">
+                <i class="fas fa-briefcase"></i>
+                <span>Jobs</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- SEARCH OVERLAY -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-header">
+            <button class="back-btn" id="closeSearch"><i class="fas fa-arrow-left"></i></button>
+            <input type="text" id="mobileSearch" placeholder="Search programs..." autofocus>
+        </div>
+        <div class="search-overlay-results" id="mobileSearchResults"></div>
+    </div>
 
     <script src="main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            loadProgramsPage();
+            if (typeof loadProgramsPage === 'function') {
+                loadProgramsPage();
+            }
         });
     </script>
 </body>

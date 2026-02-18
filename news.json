@@ -1,99 +1,82 @@
 {
-  "metadata": {
-    "total_items": 8,
-    "section": "news",
-    "last_updated": "2024-01-15"
-  },
-  "items": [
-    {
-      "id": 8,
-      "title": "Community Center Renovation Project Begins",
-      "date": "2024-01-15",
-      "category": "Local News",
-      "author": "Sarah Johnson",
-      "summary": "The long-awaited community center renovation project kicks off with a groundbreaking ceremony attended by local officials and residents.",
-      "content": "Full article content here... The $2.5 million project includes a new library wing, upgraded sports facilities, and a community gathering space...",
-      "image_url": "/assets/images/news/community-center.jpg",
-      "youtube_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      "tags": ["community", "development", "infrastructure"]
-    },
-    {
-      "id": 7,
-      "title": "Local School Wins National Science Competition",
-      "date": "2024-01-12",
-      "category": "Education",
-      "author": "Michael Chen",
-      "summary": "Lincoln High School students take first place with their innovative water purification system.",
-      "content": "Full article content here... The team of five students developed a low-cost water filtration system using locally sourced materials...",
-      "image_url": "/assets/images/news/science-win.jpg",
-      "youtube_url": "https://www.youtube.com/watch?v=abcdefghijk",
-      "tags": ["education", "science", "youth"]
-    },
-    {
-      "id": 6,
-      "title": "Annual Food Drive Exceeds Expectations",
-      "date": "2024-01-10",
-      "category": "Community",
-      "author": "Maria Garcia",
-      "summary": "Residents donate over 5,000 pounds of food to local food banks during the holiday season.",
-      "image_url": "/assets/images/news/food-drive.jpg",
-      "youtube_url": "",
-      "tags": ["charity", "community", "volunteers"]
-    },
-    {
-      "id": 5,
-      "title": "New Farmers Market Opens Downtown",
-      "date": "2024-01-08",
-      "category": "Business",
-      "author": "David Williams",
-      "summary": "Weekly farmers market brings fresh local produce and artisanal goods to the city center.",
-      "image_url": "/assets/images/news/farmers-market.jpg",
-      "youtube_url": "https://www.youtube.com/watch?v=lmnopqrstuv",
-      "tags": ["business", "local", "food"]
-    },
-    {
-      "id": 4,
-      "title": "City Council Passes Environmental Initiative",
-      "date": "2024-01-05",
-      "category": "Politics",
-      "author": "Jennifer Lee",
-      "summary": "New legislation aims to reduce carbon emissions by 30% by 2030 through various sustainability programs.",
-      "image_url": "/assets/images/news/environment.jpg",
-      "youtube_url": "",
-      "tags": ["politics", "environment", "sustainability"]
-    },
-    {
-      "id": 3,
-      "title": "Local Artist Receives National Recognition",
-      "date": "2024-01-03",
-      "category": "Arts",
-      "author": "Robert Taylor",
-      "summary": "Maria Rodriguez's mural series selected for prestigious national arts exhibition.",
-      "image_url": "/assets/images/news/artist.jpg",
-      "youtube_url": "https://www.youtube.com/watch?v=yzabc123456",
-      "tags": ["arts", "culture", "achievement"]
-    },
-    {
-      "id": 2,
-      "title": "New Public Transportation Routes Announced",
-      "date": "2024-01-01",
-      "category": "Transportation",
-      "author": "Lisa Anderson",
-      "summary": "Expanded bus service to connect underserved neighborhoods with city center starting March 2024.",
-      "image_url": "/assets/images/news/bus-service.jpg",
-      "youtube_url": "",
-      "tags": ["transportation", "infrastructure", "public service"]
-    },
-    {
-      "id": 1,
-      "title": "Year in Review: 2023 Highlights",
-      "date": "2023-12-30",
-      "category": "Special",
-      "author": "Editorial Staff",
-      "summary": "Looking back at the most memorable moments and stories that shaped our community in 2023.",
-      "image_url": "/assets/images/news/year-review.jpg",
-      "youtube_url": "https://www.youtube.com/watch?v=year2023review",
-      "tags": ["year in review", "highlights", "2023"]
-    }
-  ]
+    "items": [
+        {
+            "id": 25,
+            "title": "Breaking: Grand Ethiopian Renaissance Dam Generates Full Power",
+            "description": "The GERD has officially begun full power generation, marking a historic milestone for Ethiopia's development and energy independence. The dam's turbines are now operating at full capacity, providing reliable electricity to millions of households and businesses across the nation.",
+            "summary": "GERD achieves full power generation capacity, transforming Ethiopia's energy landscape.",
+            "category": "Politics",
+            "date": "2026-02-18",
+            "author": "Solomon Tesfaye",
+            "image_url": "https://images.unsplash.com/photo-1544989164-8c9e5e4b0b1b",
+            "youtube_url": "https://www.youtube.com/watch?v=gerd2026",
+            "tags": ["GERD", "Energy", "Development"]
+        },
+        {
+            "id": 24,
+            "title": "Ethiopian Athletes Sweep Tokyo Marathon",
+            "description": "Ethiopian runners have claimed all top three positions in both men's and women's categories at the Tokyo International Marathon. The victory showcases the continued dominance of Ethiopian long-distance runners on the global stage.",
+            "category": "Sports",
+            "date": "2026-02-15",
+            "author": "Lemlem Haile",
+            "image_url": "https://images.unsplash.com/photo-1552674605-d5b5d1a5a5a5",
+            "youtube_url": "https://www.youtube.com/watch?v=ethiopiawins",
+            "tags": ["Athletics", "Marathon", "Sports"]
+        },
+        {
+            "id": 23,
+            "title": "New Economic Reform Package Announced",
+            "description": "Prime Minister's office unveils comprehensive economic reform package aimed at attracting foreign investment and boosting local industries. The package includes tax incentives for manufacturers and streamlined business registration processes.",
+            "category": "Economy",
+            "date": "2026-02-12",
+            "author": "Betelhem Abate",
+            "image_url": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c",
+            "youtube_url": "",
+            "tags": ["Economy", "Business", "Investment"]
+        },
+        {
+            "id": 22,
+            "title": "Timket Festival Draws Millions to Gondar",
+            "description": "The annual Ethiopian Orthodox Epiphany celebration, Timket, has attracted over 2 million pilgrims to Gondar. The festival, recognized by UNESCO, showcases Ethiopia's rich cultural and religious heritage.",
+            "category": "Culture",
+            "date": "2026-01-19",
+            "author": "Meron Assefa",
+            "image_url": "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa",
+            "youtube_url": "https://www.youtube.com/watch?v=timket2026",
+            "tags": ["Culture", "Religion", "Festival"]
+        },
+        {
+            "id": 21,
+            "title": "Ethiopian Airlines Launches Direct Flights to Chicago",
+            "description": "Ethiopian Airlines, Africa's largest carrier, has launched thrice-weekly direct flights from Addis Ababa to Chicago O'Hare. The new route strengthens Ethiopia's connectivity with North America.",
+            "category": "Business",
+            "date": "2026-01-15",
+            "author": "Dawit Mekonnen",
+            "image_url": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05",
+            "youtube_url": "",
+            "tags": ["Aviation", "Travel", "Business"]
+        },
+        {
+            "id": 20,
+            "title": "Breakthrough in Coffee Export: Ethiopia Signs Deal with Starbucks",
+            "description": "Ethiopia has signed a historic $500 million coffee export agreement with Starbucks, securing premium prices for Ethiopian farmers and expanding market access for the country's renowned coffee varieties.",
+            "category": "Economy",
+            "date": "2026-01-10",
+            "author": "Tigist Hailemariam",
+            "image_url": "https://images.unsplash.com/photo-1442512595331-e89e73853f31",
+            "youtube_url": "https://www.youtube.com/watch?v=ethiopiacoffee",
+            "tags": ["Coffee", "Export", "Agriculture"]
+        },
+        {
+            "id": 19,
+            "title": "New Space Observatory Opens in Entoto",
+            "description": "Ethiopia's first space observatory has officially opened on Mount Entoto, positioning the country as a emerging player in African space research and astronomy.",
+            "category": "Technology",
+            "date": "2026-01-05",
+            "author": "Yonas Desta",
+            "image_url": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564",
+            "youtube_url": "https://www.youtube.com/watch?v=ethiopiaspace",
+            "tags": ["Space", "Science", "Technology"]
+        }
+    ]
 }

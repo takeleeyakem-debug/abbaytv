@@ -2,67 +2,200 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABBAY TV ETHIOPIA - Live</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>ABBAY TV • Live</title>
     <link rel="stylesheet" href="general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <img src="https://tse3.mm.bing.net/th/id/OIP.ORz2qWwloYPBTWgHSTnCKAHaHa" alt="ABBAY TV Logo" class="logo">
-                <span class="brand-name">ABBAY TV ETHIOPIA</span>
+<body class="dark-theme">
+    <!-- SIDE MENU -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <div class="menu-close" id="closeMenu">
+                <i class="fas fa-arrow-left"></i>
             </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="programs.html">Programs</a></li>
-                <li><a href="live.html" class="active">Live</a></li>
-                <li><a href="jobs.html">Jobs</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="menu-logo">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.ORz2qWwloYPBTWgHSTnCKAHaHa" alt="ABBAY TV">
+                <span>ABBAY TV</span>
             </div>
         </div>
-    </nav>
-
-    <section class="page-header">
-        <div class="container">
-            <h1>🔴 Live Streams</h1>
-            <p>Watch ABBAY TV Ethiopia live and upcoming events</p>
+        
+        <div class="menu-search">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="globalSearch" placeholder="Search live streams..." autocomplete="off">
+            <button class="search-clear" id="clearSearch"><i class="fas fa-times"></i></button>
         </div>
-    </section>
-
-    <!-- Currently Live -->
-    <section id="current-live-section" class="section" style="display: none;">
-        <div class="container">
-            <h2 class="section-title"><i class="fas fa-circle live-icon"></i> CURRENTLY LIVE</h2>
-            <div id="current-live-container" class="live-featured"></div>
+        
+        <div class="search-results" id="searchResults"></div>
+        
+        <div class="menu-links">
+            <a href="index.html" class="menu-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="news.html" class="menu-link">
+                <i class="fas fa-newspaper"></i>
+                <span>News</span>
+            </a>
+            <a href="programs.html" class="menu-link">
+                <i class="fas fa-tv"></i>
+                <span>Programs</span>
+            </a>
+            <a href="live.html" class="menu-link active">
+                <i class="fas fa-circle" style="color: #ff0000;"></i>
+                <span>Live</span>
+                <span class="live-badge" id="liveMenuBadge">NOW</span>
+            </a>
+            <a href="jobs.html" class="menu-link">
+                <i class="fas fa-briefcase"></i>
+                <span>Jobs</span>
+            </a>
+            <a href="contact.html" class="menu-link">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </a>
         </div>
-    </section>
-
-    <!-- Upcoming Live Streams -->
-    <section class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">📅 UPCOMING LIVE STREAMS</h2>
-            <div id="upcoming-live-container" class="live-schedule-grid"></div>
+        
+        <div class="menu-footer">
+            <div class="social-grid">
+                <a href="#" class="social-item"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-item"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-item"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-item"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-item"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-item"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p class="copyright">© 2026 ABBAY TV Ethiopia</p>
         </div>
-    </section>
+    </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 ABBAY TV ETHIOPIA. All rights reserved.</p>
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <!-- TOP NAVIGATION -->
+        <header class="top-nav">
+            <div class="nav-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo-text">
+                    <span class="gold">ABBAY</span> LIVE
+                </div>
+            </div>
+            <div class="nav-right">
+                <button class="nav-icon" id="searchToggle">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- CURRENTLY LIVE SECTION -->
+        <section class="live-now-section" id="liveNowSection">
+            <div class="live-header">
+                <h2 class="section-title">
+                    <i class="fas fa-circle" style="color: #ff0000; animation: pulse 1.5s infinite;"></i> 
+                    CURRENTLY LIVE
+                </h2>
+                <span class="live-viewers" id="liveViewers">15.4K watching</span>
+            </div>
+            <div class="live-player-container" id="liveNowContainer"></div>
+        </section>
+
+        <!-- UPCOMING LIVE STREAMS -->
+        <section class="upcoming-section">
+            <h2 class="section-title">
+                <i class="far fa-calendar-alt" style="color: var(--gold);"></i> 
+                UPCOMING LIVE
+            </h2>
+            <div class="upcoming-grid" id="upcomingContainer"></div>
+        </section>
+
+        <!-- SCHEDULE CALENDAR -->
+        <section class="schedule-section">
+            <h2 class="section-title">
+                <i class="far fa-clock" style="color: var(--gold);"></i> 
+                LIVE SCHEDULE
+            </h2>
+            <div class="schedule-calendar" id="scheduleCalendar">
+                <div class="schedule-day">
+                    <div class="schedule-day-header">Today</div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">16:00</span>
+                        <span class="schedule-title">EPL: Saint George vs Fasil Kenema</span>
+                        <span class="schedule-tag live-tag">LIVE</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">20:00</span>
+                        <span class="schedule-title">WEFEN - Politics Unplugged</span>
+                        <span class="schedule-tag">Upcoming</span>
+                    </div>
+                </div>
+                <div class="schedule-day">
+                    <div class="schedule-day-header">Tomorrow</div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">09:00</span>
+                        <span class="schedule-title">Parliament Session</span>
+                        <span class="schedule-tag">Scheduled</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">19:00</span>
+                        <span class="schedule-title">Taste of Ethiopia</span>
+                        <span class="schedule-tag">Scheduled</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAST LIVE / RECORDINGS -->
+        <section class="past-section">
+            <h2 class="section-title">
+                <i class="fas fa-history" style="color: var(--gold);"></i> 
+                RECENT LIVE
+            </h2>
+            <div class="past-grid" id="pastContainer"></div>
+        </section>
+
+        <!-- BOTTOM NAVIGATION -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="bottom-nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="news.html" class="bottom-nav-item">
+                <i class="fas fa-newspaper"></i>
+                <span>News</span>
+            </a>
+            <a href="programs.html" class="bottom-nav-item">
+                <i class="fas fa-tv"></i>
+                <span>Shows</span>
+            </a>
+            <a href="live.html" class="bottom-nav-item active">
+                <i class="fas fa-circle" style="color: #ff0000;"></i>
+                <span>Live</span>
+            </a>
+            <a href="jobs.html" class="bottom-nav-item">
+                <i class="fas fa-briefcase"></i>
+                <span>Jobs</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- SEARCH OVERLAY -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-header">
+            <button class="back-btn" id="closeSearch"><i class="fas fa-arrow-left"></i></button>
+            <input type="text" id="mobileSearch" placeholder="Search live streams..." autofocus>
         </div>
-    </footer>
+        <div class="search-overlay-results" id="mobileSearchResults"></div>
+    </div>
 
     <script src="main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            loadLivePage();
+            if (typeof loadLivePage === 'function') {
+                loadLivePage();
+            }
         });
     </script>
 </body>

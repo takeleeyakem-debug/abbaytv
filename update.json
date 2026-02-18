@@ -1,28 +1,24 @@
 {
-  "site_settings": {
-    "site_name": "Community Media Network",
-    "site_description": "Your source for local news, programs, and community stories",
-    "footer_text": "© 2024 Community Media Network. All rights reserved.",
-    "contact_email": "info@communitymedianetwork.org",
-    "contact_phone": "(555) 123-4567"
-  },
-  "homepage_settings": {
-    "featured_news_count": 3,
-    "featured_programs_count": 4,
-    "featured_jobs_count": 3,
-    "show_live_section": true,
-    "show_upcoming_events": true
-  },
-  "display_rules": {
-    "sort_order": "descending",
-    "items_per_page": {
-      "news": 10,
-      "programs": 12,
-      "jobs": 8,
-      "live": 6
+    "site_name": "ABBAY TV ETHIOPIA",
+    "site_description": "Premium Ethiopian Media Platform",
+    "sort_order": "desc",
+    "sort_by": "id",
+    "homepage": {
+        "latest_news_limit": 6,
+        "latest_programs_limit": 4,
+        "latest_jobs_limit": 3,
+        "show_live_only_if_active": true
     },
-    "media_fallback": "/assets/images/fallback.jpg"
-  },
-  "last_updated": "2024-01-15T10:30:00Z",
-  "version": "2.0.0"
+    "features_is_newest": true,
+    "site_status": "online",
+    "last_updated": "2026-02-18",
+    "theme": "black-gold",
+    "social": {
+        "facebook": "https://facebook.com/abbaytv",
+        "youtube": "https://youtube.com/abbaytv",
+        "telegram": "https://t.me/abbaytv",
+        "twitter": "https://twitter.com/abbaytv",
+        "instagram": "https://instagram.com/abbaytv",
+        "tiktok": "https://tiktok.com/@abbaytv"
+    }
 }

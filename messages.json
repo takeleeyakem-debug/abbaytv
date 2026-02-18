@@ -1,76 +1,64 @@
 {
-  "metadata": {
-    "total_items": 6,
-    "section": "messages",
-    "last_updated": "2024-01-15",
-    "note": "This file stores contact form submissions"
-  },
-  "items": [
-    {
-      "id": 6,
-      "name": "Jennifer Martinez",
-      "email": "jennifer.m@email.com",
-      "phone": "(555) 234-5678",
-      "subject": "Program Suggestion",
-      "category": "Programming",
-      "message": "I would love to see a program about local gardening and sustainable living. There's so much interest in this topic in our community.",
-      "date": "2024-01-15T10:30:00Z",
-      "status": "unread"
-    },
-    {
-      "id": 5,
-      "name": "Robert Chen",
-      "email": "robert.c@workmail.com",
-      "phone": "",
-      "subject": "Technical Issue with Live Stream",
-      "category": "Technical",
-      "message": "The live stream was buffering constantly during the council meeting last night. Is there a known issue?",
-      "date": "2024-01-14T22:15:00Z",
-      "status": "read"
-    },
-    {
-      "id": 4,
-      "name": "Maria Sanchez",
-      "email": "maria.s@family.com",
-      "phone": "(555) 876-5432",
-      "subject": "Volunteer Opportunity",
-      "category": "Volunteer",
-      "message": "I would like to volunteer for the community events team. I have experience in event planning and coordination.",
-      "date": "2024-01-13T15:45:00Z",
-      "status": "replied"
-    },
-    {
-      "id": 3,
-      "name": "David Kim",
-      "email": "david.k@business.org",
-      "phone": "(555) 345-6789",
-      "subject": "Advertising Inquiry",
-      "category": "Business",
-      "message": "I'd like information about advertising rates and sponsorship opportunities for my local restaurant.",
-      "date": "2024-01-12T09:20:00Z",
-      "status": "read"
-    },
-    {
-      "id": 2,
-      "name": "Lisa Thompson",
-      "email": "lisa.t@school.edu",
-      "phone": "(555) 456-7890",
-      "subject": "News Correction",
-      "category": "News",
-      "message": "The article about the school science competition misspelled our principal's name. It's Dr. Williamson, not Dr. Wilson.",
-      "date": "2024-01-10T14:30:00Z",
-      "status": "replied"
-    },
-    {
-      "id": 1,
-      "name": "James Wilson",
-      "email": "james.w@community.org",
-      "phone": "(555) 567-8901",
-      "subject": "Partnership Proposal",
-      "category": "Partnership",
-      "message": "Our non-profit would like to propose a partnership for a community awareness campaign.",
-      "date": "2024-01-08T11:00:00Z",
-      "status": "archived"
-    }
-  ]
+    "items": [
+        {
+            "id": 6,
+            "name": "Dr. Tadesse Hailemariam",
+            "email": "tadesse.h@ethiopianacademy.edu.et",
+            "phone": "+251-911-234-567",
+            "subject": "Partnership Proposal: Educational Content",
+            "message": "I'm writing on behalf of the Ethiopian Academy of Sciences to propose a partnership with ABBAY TV for a weekly science education program. We believe your platform's reach would help promote science literacy among Ethiopians.",
+            "date": "2026-02-18T09:30:00Z",
+            "status": "unread"
+        },
+        {
+            "id": 5,
+            "name": "Selam Tesfaye",
+            "email": "selam.t@diasporainvest. com",
+            "phone": "+1-202-555-0199",
+            "subject": "Investment Inquiry: Advertising",
+            "message": "I represent a group of Ethiopian diaspora investors interested in advertising on ABBAY TV. Could you send your media kit and advertising rates for the US market? We're particularly interested in reaching viewers in Washington DC and Virginia.",
+            "date": "2026-02-17T14:15:00Z",
+            "status": "read"
+        },
+        {
+            "id": 4,
+            "name": "Bereket Ayele",
+            "email": "bereket.a@gmail.com",
+            "phone": "+251-912-345-678",
+            "subject": "Story Idea: Traditional Music Preservation",
+            "message": "I'm a musician and researcher documenting Ethiopia's disappearing traditional musical instruments. I'd love to pitch a documentary series for ABBAY TV about the master artisans and musicians keeping these traditions alive.",
+            "date": "2026-02-16T11:45:00Z",
+            "status": "replied"
+        },
+        {
+            "id": 3,
+            "name": "Hanna Gebre",
+            "email": "hanna.g@youthleadership.org",
+            "phone": "+251-913-456-789",
+            "subject": "Youth Program Collaboration",
+            "message": "Our youth leadership organization would like to collaborate on a weekly program highlighting young Ethiopian innovators and entrepreneurs. We have a list of 50+ inspiring young people ready to share their stories.",
+            "date": "2026-02-15T16:20:00Z",
+            "status": "replied"
+        },
+        {
+            "id": 2,
+            "name": "Michael Johnson",
+            "email": "michael.j@bbc.co.uk",
+            "phone": "+44-20-1234-5678",
+            "subject": "Content Licensing Inquiry",
+            "message": "I'm a producer at BBC World Service interested in licensing some of ABBAY TV's documentary content for a series on African heritage. Please let me know who I should contact regarding licensing terms.",
+            "date": "2026-02-14T10:00:00Z",
+            "status": "archived"
+        },
+        {
+            "id": 1,
+            "name": "Ephrem Desta",
+            "email": "ephrem.d@ethiopiantourism.gov.et",
+            "phone": "+251-914-567-890",
+            "subject": "Tourism Promotion Partnership",
+            "message": "The Ethiopian Tourism Organization would like to discuss a partnership for promoting tourism through ABBAY TV. We're planning a major campaign for 2026-2027 and see ABBAY TV as a key partner.",
+            "date": "2026-02-13T13:30:00Z",
+            "status": "archived"
+        }
+    ]
 }
