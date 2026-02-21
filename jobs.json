@@ -1,268 +1,58 @@
 {
-    "items": [
-        {
-            "id": 20,
-            "title": "Senior News Anchor / Journalist",
-            "company": "ABBAY TV Ethiopia",
-            "location": "Addis Ababa, Ethiopia",
-            "type": "Full-time",
-            "salary": " negotiable based on experience",
-            "posted_date": "2026-02-18",
-            "deadline": "2026-03-18",
-            "description": "ABBAY TV Ethiopia is seeking an experienced, charismatic Senior News Anchor to lead our prime-time news broadcast. The ideal candidate will have exceptional journalism skills, deep knowledge of Ethiopian and African affairs, and the ability to connect with viewers across the nation and diaspora.",
-            "requirements": [
-                "Minimum 7 years experience in broadcast journalism",
-                "Bachelor's degree in Journalism, Communications, or related field",
-                "Fluent in Amharic and English (Afan Oromo is a plus)",
-                "Strong on-camera presence and communication skills",
-                "Experience covering politics, economics, and current affairs",
-                "Ability to work under pressure and meet strict deadlines",
-                "Leadership experience and ability to mentor junior staff"
-            ],
-            "responsibilities": [
-                "Anchor prime-time news broadcasts (Monday-Friday)",
-                "Conduct live and pre-recorded interviews with newsmakers",
-                "Collaborate with news producers on story selection and presentation",
-                "Represent ABBAY TV at press conferences and events",
-                "Mentor junior journalists and reporters",
-                "Contribute to special coverage and breaking news situations"
-            ],
-            "benefits": [
-                "Competitive salary package",
-                "Health insurance",
-                "Annual travel allowance",
-                "Professional development opportunities",
-                "Relocation assistance for qualified candidates"
-            ],
-            "apply_link": "careers@abbaytv.et",
-            "image_url": "https://images.unsplash.com/photo-1589909202802-8f4aadce1849"
-        },
-        {
-            "id": 19,
-            "title": "Video Editor / Motion Graphics Designer",
-            "company": "ABBAY TV Ethiopia",
-            "location": "Addis Ababa / Remote (for diaspora)",
-            "type": "Full-time",
-            "salary": "$25,000 - $40,000/year",
-            "posted_date": "2026-02-17",
-            "deadline": "2026-03-15",
-            "description": "We're looking for a creative and technically skilled Video Editor with motion graphics expertise to join our production team. You'll work on news packages, promotional content, and special programs, helping tell Ethiopian stories with visual excellence.",
-            "requirements": [
-                "3+ years professional video editing experience",
-                "Expert proficiency in Adobe Premiere Pro and After Effects",
-                "Experience with DaVinci Resolve for color grading",
-                "Strong understanding of storytelling and pacing",
-                "Knowledge of Ethiopian visual culture and aesthetics",
-                "Ability to work under tight deadlines",
-                "Portfolio demonstrating creative and technical skills"
-            ],
-            "responsibilities": [
-                "Edit daily news packages and segments",
-                "Create motion graphics for news and programs",
-                "Produce promotional videos and channel trailers",
-                "Collaborate with producers and reporters on visual storytelling",
-                "Maintain brand consistency across all video content",
-                "Archive and organize video assets"
-            ],
-            "benefits": [
-                "Flexible work arrangements",
-                "Creative freedom",
-                "Latest equipment and software",
-                "Opportunity to shape Ethiopia's visual media landscape"
-            ],
-            "apply_link": "production@abbaytv.et",
-            "image_url": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d"
-        },
-        {
-            "id": 18,
-            "title": "Digital Content Manager",
-            "company": "ABBAY TV Ethiopia",
-            "location": "Addis Ababa",
-            "type": "Full-time",
-            "salary": "Competitive",
-            "posted_date": "2026-02-16",
-            "deadline": "2026-03-10",
-            "description": "ABBAY TV is expanding its digital presence and seeking a strategic Digital Content Manager to lead our online platforms. You'll develop and execute digital strategy, grow our social media audience, and ensure our content reaches Ethiopians worldwide.",
-            "requirements": [
-                "5+ years digital media experience",
-                "Strong understanding of social media platforms and algorithms",
-                "Experience with YouTube channel management and growth",
-                "Analytics and data-driven decision making",
-                "Content strategy development",
-                "Team leadership experience",
-                "Knowledge of Ethiopian digital landscape"
-            ],
-            "responsibilities": [
-                "Develop and execute digital content strategy",
-                "Manage social media team and content calendar",
-                "Optimize content for different platforms (YouTube, Facebook, Telegram)",
-                "Analyze performance metrics and adjust strategy",
-                "Grow audience engagement and reach",
-                "Coordinate with news and production teams",
-                "Stay current with digital trends and platform changes"
-            ],
-            "apply_link": "digital@abbaytv.et",
-            "image_url": "https://images.unsplash.com/photo-1557804506-669a67965ba0"
-        },
-        {
-            "id": 17,
-            "title": "Field Reporter / Correspondent - Regional Office",
-            "company": "ABBAY TV Ethiopia",
-            "location": "Bahir Dar, Ethiopia",
-            "type": "Full-time",
-            "salary": "Based on experience",
-            "posted_date": "2026-02-15",
-            "deadline": "2026-03-01",
-            "description": "ABBAY TV is opening a regional bureau in Bahir Dar and seeking a passionate Field Reporter to cover news from the Amhara region. You'll report on politics, culture, development, and human interest stories from one of Ethiopia's most historically significant regions.",
-            "requirements": [
-                "3+ years journalism experience",
-                "Bachelor's in Journalism or related field",
-                "Fluent in Amharic (knowledge of local languages a plus)",
-                "Strong writing and storytelling skills",
-                "Ability to shoot and edit basic video (mobile journalism skills)",
-                "Deep knowledge of Amhara region history and current affairs",
-                "Willingness to travel extensively within the region"
-            ],
-            "responsibilities": [
-                "Cover daily news events in Amhara region",
-                "Develop story ideas and pitch to editors",
-                "Build sources and maintain contacts",
-                "Produce video packages for broadcast and digital",
-                "Live shots during breaking news",
-                "Collaborate with Addis Ababa newsroom"
-            ],
-            "apply_link": "news@abbaytv.et",
-            "image_url": "https://images.unsplash.com/photo-1588687619814-29b8b1a5b9b8"
-        },
-        {
-            "id": 16,
-            "title": "Marketing and Partnerships Manager",
-            "company": "ABBAY TV Ethiopia",
-            "location": "Addis Ababa",
-            "type": "Full-time",
-            "salary": "Competitive with commission",
-            "posted_date": "2026-02-14",
-            "deadline": "2026-03-14",
-            "description": "Drive ABBAY TV's growth through strategic partnerships and marketing initiatives. We're looking for a dynamic professional to build relationships with advertisers, partners, and stakeholders while strengthening our brand presence across Ethiopia and the diaspora.",
-            "requirements": [
-                "5+ years in marketing, advertising, or business development",
-                "Proven track record in partnership building",
-                "Strong negotiation and communication skills",
-                "Understanding of media industry and advertising landscape",
-                "Network of business contacts in Ethiopia",
-                "MBA or relevant advanced degree preferred",
-                "Fluency in English and Amharic"
-            ],
-            "responsibilities": [
-                "Develop and execute marketing strategy",
-                "Build relationships with potential advertisers and partners",
-                "Create sponsorship packages and proposals",
-                "Organize promotional events and activations",
-                "Collaborate with content team on branded content",
-                "Track and report on marketing ROI",
-                "Represent ABBAY TV at industry events"
-            ],
-            "apply_link": "partnerships@abbaytv.et",
-            "image_url": "https://images.unsplash.com/photo-1557804506-669a67965ba0"
-        },
-        {
-            "id": 15,
-            "title": "Production Assistant (Entry Level)",
-            "company": "ABBAY TV Ethiopia",
-            "location": "Addis Ababa",
-            "type": "Full-time",
-            "salary": "15,000 - 20,000 ETB/month",
-            "posted_date": "2026-02-13",
-            "deadline": "2026-03-05",
-            "description": "Kickstart your media career with ABBAY TV! We're seeking enthusiastic, motivated Production Assistants to support our news and production teams. This is an excellent opportunity to learn from industry professionals and gain hands-on experience in television production.",
-            "requirements": [
-                "Bachelor's degree in any field (recent graduates encouraged)",
-                "Strong interest in media and journalism",
-                "Excellent organizational skills",
-                "Ability to work flexible hours",
-                "Basic computer skills",
-                "Eagerness to learn",
-                "No prior experience required - we'll train you!"
-            ],
-            "responsibilities": [
-                "Assist producers and reporters with research",
-                "Coordinate logistics for shoots and events",
-                "Transcribe interviews",
-                "Assist in studio during live broadcasts",
-                "Archive and organize media assets",
-                "Run errands and provide general support",
-                "Learn all aspects of TV production"
-            ],
-            "benefits": [
-                "Comprehensive training program",
-                "Mentorship from experienced professionals",
-                "Clear career progression path",
-                "Opportunity to work on diverse projects",
-                "Potential for rapid advancement"
-            ],
-            "apply_link": "careers@abbaytv.et",
-            "image_url": "https://images.unsplash.com/photo-1522071820081-009f0129c71c"
-        },
-        {
-            "id": 14,
-            "title": "Audio Engineer / Sound Designer",
-            "company": "ABBAY TV Ethiopia",
-            "location": "Addis Ababa",
-            "type": "Contract / Freelance",
-            "salary": "Project-based",
-            "posted_date": "2026-02-12",
-            "deadline": "2026-03-12",
-            "description": "ABBAY TV is building a state-of-the-art audio post-production facility and seeking talented Audio Engineers for freelance and contract work. You'll work on diverse projects including TV programs, commercials, documentaries, and digital content.",
-            "requirements": [
-                "3+ years audio engineering experience",
-                "Proficiency with Pro Tools, Logic Pro, or similar DAWs",
-                "Experience with sound design for video",
-                "Knowledge of mixing and mastering",
-                "Understanding of broadcast audio standards",
-                "Own equipment preferred but not required",
-                "Portfolio demonstrating audio work"
-            ],
-            "responsibilities": [
-                "Mix and master audio for TV programs",
-                "Create sound design for documentaries and promos",
-                "Clean and restore audio from field recordings",
-                "Collaborate with video editors and producers",
-                "Maintain audio equipment",
-                "Meet project deadlines"
-            ],
-            "apply_link": "audio@abbaytv.et",
-            "image_url": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04"
-        },
-        {
-            "id": 13,
-            "title": "Social Media Manager - Diaspora Focus",
-            "company": "ABBAY TV Ethiopia",
-            "location": "Remote (USA/Europe/Canada)",
-            "type": "Part-time (20-30 hours/week)",
-            "salary": "$20-30/hour",
-            "posted_date": "2026-02-11",
-            "deadline": "2026-03-11",
-            "description": "Connect ABBAY TV with the Ethiopian diaspora! We're seeking a Social Media Manager based in North America or Europe to grow our international audience and create content specifically for Ethiopians abroad.",
-            "requirements": [
-                "2+ years social media management experience",
-                "Deep understanding of Ethiopian diaspora communities",
-                "Experience with Facebook, YouTube, Telegram, TikTok",
-                "Content creation skills (graphics, basic video)",
-                "Knowledge of social media analytics",
-                "Self-motivated and able to work independently",
-                "Fluent in English and Amharic"
-            ],
-            "responsibilities": [
-                "Manage diaspora-focused social media accounts",
-                "Create content relevant to Ethiopians abroad",
-                "Engage with diaspora community online",
-                "Schedule and publish content across time zones",
-                "Track and report on engagement metrics",
-                "Coordinate with Addis Ababa team",
-                "Identify trends and opportunities in diaspora market"
-            ],
-            "apply_link": "diaspora@abbaytv.et",
-            "image_url": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7"
-        }
-    ]
+  "items": [
+    {
+      "id": 12,
+      "title": "ሲኒየር የዜና አቅራቢ",
+      "company": "ABBAY TV",
+      "location": "አዲስ አበባ",
+      "type": "ሙሉ ጊዜ",
+      "description": "ከ5 ዓመት በላይ ልምድ ያለው የዜና አቅራቢ ያስፈልገናል። አመልካቾች አማርኛ እና እንግሊዝኛ አቀላጥፈው መናገር ይችሉ መሆን አለበት።",
+      "deadline": "2026-03-21"
+    },
+    {
+      "id": 11,
+      "title": "የቪዲዮ አርታኢ",
+      "company": "ABBAY TV",
+      "location": "አዲስ አበባ",
+      "type": "ሙሉ ጊዜ",
+      "description": "አዶቤ ፕሪሚየር ፕሮ እና ሌሎች የኤዲቲንግ ሶፍትዌሮችን በደንብ የሚያውቅ የቪዲዮ አርታኢ ያስፈልገናል።",
+      "deadline": "2026-03-15"
+    },
+    {
+      "id": 10,
+      "title": "ዲጂታል ይዘት አስተዳዳሪ",
+      "company": "ABBAY TV",
+      "location": "አዲስ አበባ",
+      "type": "ሙሉ ጊዜ",
+      "description": "የማህበራዊ ሚዲያ እና ዲጂታል መድረኮችን የሚያስተዳድር ባለሙያ ያስፈልገናል። የዲጂታል ማርኬቲንግ ልምድ ያለው።",
+      "deadline": "2026-03-30"
+    },
+    {
+      "id": 9,
+      "title": "የሜዳ ዘጋቢ",
+      "company": "ABBAY TV",
+      "location": "ባሕር ዳር",
+      "type": "ሙሉ ጊዜ",
+      "description": "ከባሕር ዳር እና አካባቢው ዜናዎችን የሚሸፍን ዘጋቢ ያስፈልገናል። የጋዜጠኝነት ልምድ ያለው።",
+      "deadline": "2026-03-10"
+    },
+    {
+      "id": 8,
+      "title": "የፕሮዳክሽን ረዳት",
+      "company": "ABBAY TV",
+      "location": "አዲስ አበባ",
+      "type": "የተወሰነ ጊዜ",
+      "description": "ለተለያዩ ፕሮግራሞች የምርት ረዳት ያስፈልገናል። ከሚዲያ ዘርፍ ጋር ፍላጎት ላለው ተመራቂ ተስማሚ።",
+      "deadline": "2026-04-01"
+    },
+    {
+      "id": 7,
+      "title": "ግራፊክ ዲዛይነር",
+      "company": "ABBAY TV",
+      "location": "አዲስ አበባ",
+      "type": "ነጻ ሠራተኛ",
+      "description": "ለተለያዩ ፕሮጀክቶች ግራፊክስ የሚዘጋጅ ዲዛይነር ያስፈልገናል። ከፎቶሾፕ፣ ኢሉስትሬተር ጋር ልምድ ያለው።",
+      "deadline": "2026-03-25"
+    }
+  ]
 }

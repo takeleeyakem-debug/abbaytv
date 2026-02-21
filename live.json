@@ -1,92 +1,49 @@
 {
-    "items": [
-        {
-            "id": 15,
-            "title": "🔴 LIVE: Ethiopian Premier League - Saint George vs Fasil Kenema",
-            "description": "Live coverage of the biggest match in Ethiopian football. Saint George takes on Fasil Kenema at Addis Ababa Stadium. Pre-game analysis, live commentary, and post-match reactions.",
-            "youtube_url": "https://www.youtube.com/watch?v=live_sg_fasil",
-            "is_live": true,
-            "schedule_date": "2026-02-18T16:00:00Z",
-            "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018",
-            "viewers": 15400,
-            "category": "Sports"
-        },
-        {
-            "id": 14,
-            "title": "Parliament Session: Budget Approval Debate",
-            "description": "Live coverage of the Ethiopian Parliament as members debate and vote on the national budget for the upcoming fiscal year.",
-            "youtube_url": "https://www.youtube.com/watch?v=live_parliament",
-            "is_live": true,
-            "schedule_date": "2026-02-18T09:00:00Z",
-            "image_url": "https://images.unsplash.com/photo-1589262804704-c5aa9e6def8c",
-            "viewers": 8700,
-            "category": "Politics"
-        },
-        {
-            "id": 13,
-            "title": "Timket Festival 2026 - Live from Gondar",
-            "description": "Live broadcast of the Timket (Epiphany) celebration from Fasil Ghebbi, Gondar. Witness the centuries-old tradition as thousands gather for this UNESCO-recognized cultural event.",
-            "youtube_url": "https://www.youtube.com/watch?v=live_timket2026",
-            "is_live": false,
-            "schedule_date": "2026-01-19T08:00:00Z",
-            "image_url": "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa",
-            "viewers": 45200,
-            "category": "Culture"
-        },
-        {
-            "id": 12,
-            "title": "Ethiopian Music Awards 2026",
-            "description": "Live from Millennium Hall, Addis Ababa - the biggest night in Ethiopian music. Watch your favorite artists compete for top honors with special performances throughout the night.",
-            "youtube_url": "https://www.youtube.com/watch?v=live_ema2026",
-            "is_live": false,
-            "schedule_date": "2026-02-25T18:00:00Z",
-            "image_url": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a",
-            "viewers": 0,
-            "category": "Entertainment"
-        },
-        {
-            "id": 11,
-            "title": "Prime Minister's Press Conference: New Economic Measures",
-            "description": "The Prime Minister addresses the nation on new economic reforms and answers questions from the press. Live from the Office of the Prime Minister.",
-            "youtube_url": "https://www.youtube.com/watch?v=live_pm_economy",
-            "is_live": false,
-            "schedule_date": "2026-02-20T11:00:00Z",
-            "image_url": "https://images.unsplash.com/photo-1541872703-74c5e44368f9",
-            "viewers": 0,
-            "category": "Politics"
-        },
-        {
-            "id": 10,
-            "title": "Dawn Ethiopia Morning Show - Live",
-            "description": "Start your day with Ethiopia's favorite morning show. Live interviews, weather updates, and breaking news with Meseret Mulugeta.",
-            "youtube_url": "https://www.youtube.com/watch?v=live_dawn",
-            "is_live": true,
-            "schedule_date": "2026-02-18T06:00:00Z",
-            "image_url": "https://images.unsplash.com/photo-1589909202802-8f4aadce1849",
-            "viewers": 12300,
-            "category": "Talk Show"
-        },
-        {
-            "id": 9,
-            "title": "Africa Cup Qualifier: Ethiopia vs Kenya",
-            "description": "Live coverage of the crucial Africa Cup of Nations qualifier between Ethiopia and Kenya. The Walia Ibex battle for a spot in the continental tournament.",
-            "youtube_url": "https://www.youtube.com/watch?v=live_eth_kenya",
-            "is_live": false,
-            "schedule_date": "2026-03-05T19:00:00Z",
-            "image_url": "https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9",
-            "viewers": 0,
-            "category": "Sports"
-        },
-        {
-            "id": 8,
-            "title": "Great Ethiopian Run 2026",
-            "description": "Live coverage of Africa's biggest mass participation run. Thousands of runners take to the streets of Addis Ababa in this celebrated annual event.",
-            "youtube_url": "https://www.youtube.com/watch?v=live_ethiorun",
-            "is_live": false,
-            "schedule_date": "2026-11-22T08:00:00Z",
-            "image_url": "https://images.unsplash.com/photo-1552674605-d5b5d1a5a5a5",
-            "viewers": 0,
-            "category": "Sports"
-        }
-    ]
+  "items": [
+    {
+      "id": 8,
+      "title": "የምሽቱ ዜና - ቀጥታ ስርጭት",
+      "description": "የዛሬ ዋና ዋና ዜናዎች ከአገር ውስጥ እና ከውጭ። የምሽቱ 10 ሰዓት ዜና ቀጥታ ስርጭት።",
+      "youtube_url": "https://youtube.com/watch?v=LIVENEWS1",
+      "is_live": true,
+      "schedule_date": "2026-02-21T22:00:00Z",
+      "viewers": 15420
+    },
+    {
+      "id": 7,
+      "title": "የፕሪሚየር ሊግ እግር ኳስ - ቅጥልጥል ቀጥታ ስርጭት",
+      "description": "የኢትዮጵያ ፕሪሚየር ሊግ ጨዋታ ቀጥታ ስርጭት። ቅጥልጥል ከቅጥልጥል ጋር ይገናኛሉ።",
+      "youtube_url": "https://youtube.com/watch?v=EPLMATCH",
+      "is_live": true,
+      "schedule_date": "2026-02-21T19:00:00Z",
+      "viewers": 28500
+    },
+    {
+      "id": 6,
+      "title": "የፓርላማ ምክር ቤት ውይይት",
+      "description": "የሕዝብ ተወካዮች ምክር ቤት የበጀት ውይይት ቀጥታ ስርጭት።",
+      "youtube_url": "https://youtube.com/watch?v=PARLIAMENT",
+      "is_live": false,
+      "schedule_date": "2026-02-22T09:00:00Z",
+      "viewers": 0
+    },
+    {
+      "id": 5,
+      "title": "የሙዚቃ ፌስቲቫል - ቀጥታ ከሸገር ፓርክ",
+      "description": "ዓመታዊ የሙዚቃ ፌስቲቫል ቀጥታ ስርጭት ከሸገር ፓርክ። የተለያዩ የኢትዮጵያ አርቲስቶች ይሳተፋሉ።",
+      "youtube_url": "",
+      "is_live": false,
+      "schedule_date": "2026-02-28T18:00:00Z",
+      "viewers": 0
+    },
+    {
+      "id": 4,
+      "title": "የኢትዮጵያ አየር መንገድ የበረራ ማስነሻ ስነ-ስርዓት",
+      "description": "የኢትዮጵያ አየር መንገድ አዲስ መስመር ወደ አትላንታ የበረራ ማስነሻ ስነ-ስርዓት ቀጥታ ስርጭት።",
+      "youtube_url": "https://youtube.com/watch?v=ETHIOPIAN",
+      "is_live": false,
+      "schedule_date": "2026-02-23T14:00:00Z",
+      "viewers": 0
+    }
+  ]
 }

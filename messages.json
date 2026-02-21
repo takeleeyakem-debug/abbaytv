@@ -1,64 +1,25 @@
 {
-    "items": [
-        {
-            "id": 6,
-            "name": "Dr. Tadesse Hailemariam",
-            "email": "tadesse.h@ethiopianacademy.edu.et",
-            "phone": "+251-911-234-567",
-            "subject": "Partnership Proposal: Educational Content",
-            "message": "I'm writing on behalf of the Ethiopian Academy of Sciences to propose a partnership with ABBAY TV for a weekly science education program. We believe your platform's reach would help promote science literacy among Ethiopians.",
-            "date": "2026-02-18T09:30:00Z",
-            "status": "unread"
-        },
-        {
-            "id": 5,
-            "name": "Selam Tesfaye",
-            "email": "selam.t@diasporainvest. com",
-            "phone": "+1-202-555-0199",
-            "subject": "Investment Inquiry: Advertising",
-            "message": "I represent a group of Ethiopian diaspora investors interested in advertising on ABBAY TV. Could you send your media kit and advertising rates for the US market? We're particularly interested in reaching viewers in Washington DC and Virginia.",
-            "date": "2026-02-17T14:15:00Z",
-            "status": "read"
-        },
-        {
-            "id": 4,
-            "name": "Bereket Ayele",
-            "email": "bereket.a@gmail.com",
-            "phone": "+251-912-345-678",
-            "subject": "Story Idea: Traditional Music Preservation",
-            "message": "I'm a musician and researcher documenting Ethiopia's disappearing traditional musical instruments. I'd love to pitch a documentary series for ABBAY TV about the master artisans and musicians keeping these traditions alive.",
-            "date": "2026-02-16T11:45:00Z",
-            "status": "replied"
-        },
-        {
-            "id": 3,
-            "name": "Hanna Gebre",
-            "email": "hanna.g@youthleadership.org",
-            "phone": "+251-913-456-789",
-            "subject": "Youth Program Collaboration",
-            "message": "Our youth leadership organization would like to collaborate on a weekly program highlighting young Ethiopian innovators and entrepreneurs. We have a list of 50+ inspiring young people ready to share their stories.",
-            "date": "2026-02-15T16:20:00Z",
-            "status": "replied"
-        },
-        {
-            "id": 2,
-            "name": "Michael Johnson",
-            "email": "michael.j@bbc.co.uk",
-            "phone": "+44-20-1234-5678",
-            "subject": "Content Licensing Inquiry",
-            "message": "I'm a producer at BBC World Service interested in licensing some of ABBAY TV's documentary content for a series on African heritage. Please let me know who I should contact regarding licensing terms.",
-            "date": "2026-02-14T10:00:00Z",
-            "status": "archived"
-        },
-        {
-            "id": 1,
-            "name": "Ephrem Desta",
-            "email": "ephrem.d@ethiopiantourism.gov.et",
-            "phone": "+251-914-567-890",
-            "subject": "Tourism Promotion Partnership",
-            "message": "The Ethiopian Tourism Organization would like to discuss a partnership for promoting tourism through ABBAY TV. We're planning a major campaign for 2026-2027 and see ABBAY TV as a key partner.",
-            "date": "2026-02-13T13:30:00Z",
-            "status": "archived"
-        }
-    ]
+  "items": [
+    {
+      "id": 3,
+      "name": "አበበ በቀለ",
+      "email": "abebe.bekele@email.com",
+      "message": "እንደምን አለችሁ አባይ ቴሌቪዥን። የእንግሁ ኢትዮጵያ ፕሮግራም በጣም እወዳለሁ። በየቀኑ እመለከተዋለሁ። እግዚአብሔር ይባርካችሁ።",
+      "date": "2026-02-20T08:30:00Z"
+    },
+    {
+      "id": 2,
+      "name": "ሳራ መኮንን",
+      "email": "sara.mekonnen@work.com",
+      "message": "ከና የሥራ ማስታወቂያዎቻችሁ ጋር በተያያዘ ነው የምጽፈው። ለቪዲዮ አርታኢነት ማመልከት እፈልጋለሁ። ሲቪዬን በኢሜይል ልኬላችኋለሁ።",
+      "date": "2026-02-19T14:15:00Z"
+    },
+    {
+      "id": 1,
+      "name": "ዮናስ ደስታ",
+      "email": "yonas.desta@yahoo.com",
+      "message": "ስለ ትናንት ማታ የስፖርት ዘገባ ማመስገን እፈልጋለሁ። የኢትዮጵያ እግር ኳስ ቡድን ተጨዋቾች ጋር ያደረጋችሁት ቃለ መጠይቅ በጣም ጥሩ ነበር። እንዲህ ያለውን ይዘት ማቅረባችሁን ቀጥሉ።",
+      "date": "2026-02-18T09:45:00Z"
+    }
+  ]
 }

@@ -3,348 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>ABBAY TV • Contact</title>
+    <title>Contact - ABBAY TV ETHIOPIA</title>
     <link rel="stylesheet" href="general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="dark-theme">
-    <!-- SIDE MENU -->
+<body>
+    <!-- Side Menu Overlay -->
     <div class="menu-overlay" id="menuOverlay"></div>
     
+    <!-- Side Menu -->
     <div class="side-menu" id="sideMenu">
         <div class="menu-header">
-            <div class="menu-close" id="closeMenu">
-                <i class="fas fa-arrow-left"></i>
-            </div>
-            <div class="menu-logo">
-                <img src="https://tse3.mm.bing.net/th/id/OIP.ORz2qWwloYPBTWgHSTnCKAHaHa" alt="ABBAY TV">
-                <span>ABBAY TV</span>
-            </div>
+            <div class="menu-logo">ABBAY TV</div>
+            <button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button>
         </div>
         
         <div class="menu-search">
             <i class="fas fa-search search-icon"></i>
-            <input type="text" id="globalSearch" placeholder="Search..." autocomplete="off">
-            <button class="search-clear" id="clearSearch"><i class="fas fa-times"></i></button>
+            <input type="text" id="menuSearchInput" placeholder="Search...">
         </div>
         
-        <div class="search-results" id="searchResults"></div>
-        
-        <div class="menu-links">
-            <a href="index.html" class="menu-link">
+        <nav class="menu-nav">
+            <a href="index.html" class="menu-item">
                 <i class="fas fa-home"></i>
                 <span>Home</span>
             </a>
-            <a href="news.html" class="menu-link">
+            <a href="news.html" class="menu-item">
                 <i class="fas fa-newspaper"></i>
                 <span>News</span>
             </a>
-            <a href="programs.html" class="menu-link">
+            <a href="programs.html" class="menu-item">
                 <i class="fas fa-tv"></i>
                 <span>Programs</span>
             </a>
-            <a href="live.html" class="menu-link">
-                <i class="fas fa-circle" style="color: #ff0000;"></i>
+            <a href="live.html" class="menu-item">
+                <i class="fas fa-circle"></i>
                 <span>Live</span>
-                <span class="live-badge" id="liveMenuBadge" style="display: none;">NOW</span>
             </a>
-            <a href="jobs.html" class="menu-link">
+            <a href="jobs.html" class="menu-item">
                 <i class="fas fa-briefcase"></i>
                 <span>Jobs</span>
             </a>
-            <a href="contact.html" class="menu-link active">
+            <a href="contact.html" class="menu-item active">
                 <i class="fas fa-envelope"></i>
                 <span>Contact</span>
             </a>
-        </div>
+        </nav>
         
-        <div class="menu-footer">
-            <div class="social-grid">
-                <a href="#" class="social-item"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="social-item"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="social-item"><i class="fab fa-telegram"></i></a>
-                <a href="#" class="social-item"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-item"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-item"><i class="fab fa-tiktok"></i></a>
-            </div>
-            <p class="copyright">© 2026 ABBAY TV Ethiopia</p>
+        <div class="menu-social">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
         </div>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
-        <!-- TOP NAVIGATION -->
-        <header class="top-nav">
-            <div class="nav-left">
-                <button class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="logo-text">
-                    <span class="gold">ABBAY</span> CONTACT
-                </div>
-            </div>
-            <div class="nav-right">
-                <button class="nav-icon" id="searchToggle">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </header>
+    <!-- Top Navigation -->
+    <header class="top-nav">
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo">ABBAY TV <span class="gold-text">ETHIOPIA</span></div>
+        <button class="search-toggle" id="searchToggle">
+            <i class="fas fa-search"></i>
+        </button>
+    </header>
 
-        <!-- CONTACT HERO -->
-        <div class="contact-hero">
-            <h1>Get In Touch</h1>
-            <p>We'd love to hear from you. Whether you have a question, feedback, or business inquiry, our team is ready to help.</p>
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <input type="text" id="globalSearchInput" placeholder="Search...">
+            <button id="closeSearch"><i class="fas fa-times"></i></button>
         </div>
+    </div>
 
-        <!-- CONTACT GRID -->
-        <div class="contact-grid">
-            <!-- Contact Information -->
-            <div class="contact-info-card">
-                <h2><i class="fas fa-info-circle" style="color: var(--gold);"></i> Contact Information</h2>
+    <!-- Main Content -->
+    <main class="container">
+        <h1 class="page-title">Contact Us</h1>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
                 
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h3>Head Office</h3>
-                        <p>Bole Road, Dembel City Center<br>4th Floor, Addis Ababa<br>Ethiopia</p>
-                    </div>
+                    <span>Bole Sub-city, Addis Ababa, Ethiopia</span>
                 </div>
-                
                 <div class="info-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <h3>Phone</h3>
-                        <p><a href="tel:+251111234567">+251-11-123-4567</a> (Main)<br><a href="tel:+251111234568">+251-11-123-4568</a> (Newsroom)</p>
-                    </div>
+                    <i class="fas fa-phone"></i>
+                    <span>+251-11-123-4567</span>
                 </div>
-                
                 <div class="info-item">
                     <i class="fas fa-envelope"></i>
-                    <div>
-                        <h3>Email</h3>
-                        <p><a href="mailto:info@abbaytv.et">info@abbaytv.et</a> (General)<br><a href="mailto:news@abbaytv.et">news@abbaytv.et</a> (News)<br><a href="mailto:careers@abbaytv.et">careers@abbaytv.et</a> (Jobs)</p>
-                    </div>
+                    <span>info@abbaytv.et</span>
+                </div>
+            </div>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 
-                <div class="info-item">
-                    <i class="far fa-clock"></i>
-                    <div>
-                        <h3>Office Hours</h3>
-                        <p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 2:00 PM<br>Sunday: Closed (except live events)</p>
-                    </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
-            </div>
-
-            <!-- Contact Form -->
-            <div class="contact-form-card">
-                <h2><i class="fas fa-paper-plane" style="color: var(--gold);"></i> Send Us a Message</h2>
                 
-                <form id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="John Doe">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required placeholder="john@example.com">
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+251 912 345 678">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject *</label>
-                            <input type="text" id="subject" name="subject" required placeholder="What is this regarding?">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="category">Category</label>
-                        <select id="category" name="category">
-                            <option value="general">General Inquiry</option>
-                            <option value="news">News Tip / Story</option>
-                            <option value="programs">Program Feedback</option>
-                            <option value="technical">Technical Issue</option>
-                            <option value="partnership">Partnership / Advertising</option>
-                            <option value="jobs">Job Application</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" rows="6" required placeholder="Tell us more..."></textarea>
-                    </div>
-                    
-                    <div class="form-group checkbox">
-                        <input type="checkbox" id="subscribe" name="subscribe" checked>
-                        <label for="subscribe">Subscribe to newsletter for updates</label>
-                    </div>
-                    
-                    <button type="submit" class="btn-submit" id="submitBtn">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                    
-                    <div id="formMessage" class="form-message"></div>
-                </form>
-            </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
         </div>
-
-        <!-- SOCIAL MEDIA SECTION (You liked this!) -->
-        <section class="social-section">
-            <h2 class="section-title"><i class="fas fa-share-alt" style="color: var(--gold);"></i> Connect With Us</h2>
-            <div class="social-app-grid">
-                <a href="#" class="social-app-card">
-                    <i class="fab fa-facebook"></i>
-                    <span>Facebook</span>
-                    <small>@abbaytv</small>
-                </a>
-                <a href="#" class="social-app-card">
-                    <i class="fab fa-youtube"></i>
-                    <span>YouTube</span>
-                    <small>/abbaytv</small>
-                </a>
-                <a href="#" class="social-app-card">
-                    <i class="fab fa-telegram"></i>
-                    <span>Telegram</span>
-                    <small>@abbaytv</small>
-                </a>
-                <a href="#" class="social-app-card">
-                    <i class="fab fa-twitter"></i>
-                    <span>X (Twitter)</span>
-                    <small>@abbaytv</small>
-                </a>
-                <a href="#" class="social-app-card">
-                    <i class="fab fa-instagram"></i>
-                    <span>Instagram</span>
-                    <small>@abbay.tv</small>
-                </a>
-                <a href="#" class="social-app-card">
-                    <i class="fab fa-tiktok"></i>
-                    <span>TikTok</span>
-                    <small>@abbaytv</small>
-                </a>
-                <a href="#" class="social-app-card">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                    <small>/company/abbaytv</small>
-                </a>
-                <a href="#" class="social-app-card">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                    <small>+251 911 234 567</small>
-                </a>
+        
+        <div class="recent-messages">
+            <h2>Recent Messages</h2>
+            <div class="loading-spinner" id="messagesSpinner">
+                <div class="spinner"></div>
             </div>
-        </section>
-
-        <!-- MAP SECTION -->
-        <section class="map-section">
-            <h2 class="section-title"><i class="fas fa-map-marked-alt" style="color: var(--gold);"></i> Find Us</h2>
-            <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.798508021561!2d38.763896!3d9.010874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85f7c5b3b3b3%3A0x4b3b3b3b3b3b3b3b!2sAddis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1234567890"
-                    width="100%"
-                    height="400"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    title="ABBAY TV Location">
-                </iframe>
-            </div>
-            <div class="map-address">
-                <i class="fas fa-location-dot" style="color: var(--gold);"></i>
-                <p>Bole Road, Dembel City Center, 4th Floor, Addis Ababa, Ethiopia</p>
-                <a href="#" class="get-directions">Get Directions <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </section>
-
-        <!-- FAQ SECTION -->
-        <section class="faq-section">
-            <h2 class="section-title"><i class="fas fa-question-circle" style="color: var(--gold);"></i> Frequently Asked Questions</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How can I submit a news tip?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Email our newsroom at news@abbaytv.et or call +251-11-123-4568. You can also use our contact form and select "News Tip" as the category.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How do I apply for a job?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Visit our Jobs page to see current openings. Send your CV and cover letter to careers@abbaytv.et with the job title in the subject line.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Can I advertise on ABBAY TV?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! Contact our partnerships team at partnerships@abbaytv.et for our media kit and advertising rates.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How do I report a technical issue?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Email tech@abbaytv.et with details about the issue, including screenshots if possible. For urgent issues during live broadcasts, call +251-11-123-4569.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BOTTOM NAVIGATION -->
-        <nav class="bottom-nav">
-            <a href="index.html" class="bottom-nav-item">
-                <i class="fas fa-home"></i>
-                <span>Home</span>
-            </a>
-            <a href="news.html" class="bottom-nav-item">
-                <i class="fas fa-newspaper"></i>
-                <span>News</span>
-            </a>
-            <a href="programs.html" class="bottom-nav-item">
-                <i class="fas fa-tv"></i>
-                <span>Shows</span>
-            </a>
-            <a href="live.html" class="bottom-nav-item">
-                <i class="fas fa-circle" style="color: #ff0000;"></i>
-                <span>Live</span>
-            </a>
-            <a href="jobs.html" class="bottom-nav-item">
-                <i class="fas fa-briefcase"></i>
-                <span>Jobs</span>
-            </a>
-        </nav>
-    </div>
-
-    <!-- SEARCH OVERLAY -->
-    <div class="search-overlay" id="searchOverlay">
-        <div class="search-header">
-            <button class="back-btn" id="closeSearch"><i class="fas fa-arrow-left"></i></button>
-            <input type="text" id="mobileSearch" placeholder="Search..." autofocus>
+            <div class="messages-grid" id="messagesGrid"></div>
         </div>
-        <div class="search-overlay-results" id="mobileSearchResults"></div>
-    </div>
+    </main>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="news.html" class="bottom-nav-item">
+            <i class="fas fa-newspaper"></i>
+            <span>News</span>
+        </a>
+        <a href="programs.html" class="bottom-nav-item">
+            <i class="fas fa-tv"></i>
+            <span>Shows</span>
+        </a>
+        <a href="live.html" class="bottom-nav-item">
+            <i class="fas fa-circle"></i>
+            <span>Live</span>
+        </a>
+        <a href="jobs.html" class="bottom-nav-item">
+            <i class="fas fa-briefcase"></i>
+            <span>Jobs</span>
+        </a>
+    </nav>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast"></div>
 
     <script src="main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            if (typeof initContactForm === 'function') {
-                initContactForm();
-            }
-        });
-    </script>
 </body>
 </html>

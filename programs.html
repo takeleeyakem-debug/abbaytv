@@ -3,182 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>ABBAY TV • Programs</title>
+    <title>Programs - ABBAY TV ETHIOPIA</title>
     <link rel="stylesheet" href="general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="dark-theme">
-    <!-- SIDE MENU -->
+<body>
+    <!-- Side Menu Overlay -->
     <div class="menu-overlay" id="menuOverlay"></div>
     
+    <!-- Side Menu -->
     <div class="side-menu" id="sideMenu">
         <div class="menu-header">
-            <div class="menu-close" id="closeMenu">
-                <i class="fas fa-arrow-left"></i>
-            </div>
-            <div class="menu-logo">
-                <img src="https://tse3.mm.bing.net/th/id/OIP.ORz2qWwloYPBTWgHSTnCKAHaHa" alt="ABBAY TV">
-                <span>ABBAY TV</span>
-            </div>
+            <div class="menu-logo">ABBAY TV</div>
+            <button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button>
         </div>
         
         <div class="menu-search">
             <i class="fas fa-search search-icon"></i>
-            <input type="text" id="globalSearch" placeholder="Search programs..." autocomplete="off">
-            <button class="search-clear" id="clearSearch"><i class="fas fa-times"></i></button>
+            <input type="text" id="menuSearchInput" placeholder="Search...">
         </div>
         
-        <div class="search-results" id="searchResults"></div>
-        
-        <div class="menu-links">
-            <a href="index.html" class="menu-link">
+        <nav class="menu-nav">
+            <a href="index.html" class="menu-item">
                 <i class="fas fa-home"></i>
                 <span>Home</span>
             </a>
-            <a href="news.html" class="menu-link">
+            <a href="news.html" class="menu-item">
                 <i class="fas fa-newspaper"></i>
                 <span>News</span>
             </a>
-            <a href="programs.html" class="menu-link active">
+            <a href="programs.html" class="menu-item active">
                 <i class="fas fa-tv"></i>
                 <span>Programs</span>
             </a>
-            <a href="live.html" class="menu-link">
-                <i class="fas fa-circle" style="color: #ff0000;"></i>
+            <a href="live.html" class="menu-item">
+                <i class="fas fa-circle"></i>
                 <span>Live</span>
-                <span class="live-badge" id="liveMenuBadge" style="display: none;">NOW</span>
             </a>
-            <a href="jobs.html" class="menu-link">
+            <a href="jobs.html" class="menu-item">
                 <i class="fas fa-briefcase"></i>
                 <span>Jobs</span>
             </a>
-            <a href="contact.html" class="menu-link">
+            <a href="contact.html" class="menu-item">
                 <i class="fas fa-envelope"></i>
                 <span>Contact</span>
             </a>
-        </div>
-        
-        <div class="menu-footer">
-            <div class="social-grid">
-                <a href="#" class="social-item"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="social-item"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="social-item"><i class="fab fa-telegram"></i></a>
-                <a href="#" class="social-item"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-item"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-item"><i class="fab fa-tiktok"></i></a>
-            </div>
-            <p class="copyright">© 2026 ABBAY TV Ethiopia</p>
-        </div>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
-        <!-- TOP NAVIGATION -->
-        <header class="top-nav">
-            <div class="nav-left">
-                <button class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="logo-text">
-                    <span class="gold">ABBAY</span> PROGRAMS
-                </div>
-            </div>
-            <div class="nav-right">
-                <button class="nav-icon" id="searchToggle">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </header>
-
-        <!-- PROGRAM HERO / FEATURED -->
-        <div class="program-hero" id="programHero">
-            <div class="program-hero-content">
-                <span class="program-hero-category">Featured Program</span>
-                <h2 class="program-hero-title">ወፈን (WEFEN) - Politics Unplugged</h2>
-                <p class="program-hero-description">In-depth political analysis and debate on Ethiopian and Horn of Africa affairs. Wednesdays 8PM.</p>
-                <button class="program-hero-btn" onclick="window.location.href='live.html'">
-                    <i class="fas fa-play"></i> Watch Latest Episode
-                </button>
-            </div>
-        </div>
-
-        <!-- PROGRAM CATEGORIES -->
-        <div class="program-categories">
-            <h2 class="section-title">Browse by Category</h2>
-            <div class="category-chips">
-                <button class="category-chip active" data-category="all">All</button>
-                <button class="category-chip" data-category="Talk Show">Talk Show</button>
-                <button class="category-chip" data-category="Politics">Politics</button>
-                <button class="category-chip" data-category="Documentary">Documentary</button>
-                <button class="category-chip" data-category="Entertainment">Entertainment</button>
-                <button class="category-chip" data-category="Sports">Sports</button>
-                <button class="category-chip" data-category="Education">Education</button>
-                <button class="category-chip" data-category="Lifestyle">Lifestyle</button>
-                <button class="category-chip" data-category="Business">Business</button>
-                <button class="category-chip" data-category="Culture">Culture</button>
-            </div>
-        </div>
-
-        <!-- PROGRAMS GRID -->
-        <main class="programs-archive">
-            <div class="programs-grid" id="programsContainer">
-                <div class="loading-spinner">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    <p>Loading programs...</p>
-                </div>
-            </div>
-        </main>
-
-        <!-- PROGRAM SCHEDULE TEASER -->
-        <div class="schedule-teaser">
-            <div class="schedule-teaser-content">
-                <h3>Full Program Schedule</h3>
-                <p>Check out our complete weekly schedule and never miss your favorite shows.</p>
-                <a href="#" class="schedule-link">View Schedule <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-        <!-- BOTTOM NAVIGATION -->
-        <nav class="bottom-nav">
-            <a href="index.html" class="bottom-nav-item">
-                <i class="fas fa-home"></i>
-                <span>Home</span>
-            </a>
-            <a href="news.html" class="bottom-nav-item">
-                <i class="fas fa-newspaper"></i>
-                <span>News</span>
-            </a>
-            <a href="programs.html" class="bottom-nav-item active">
-                <i class="fas fa-tv"></i>
-                <span>Shows</span>
-            </a>
-            <a href="live.html" class="bottom-nav-item">
-                <i class="fas fa-circle" style="color: #ff0000;"></i>
-                <span>Live</span>
-            </a>
-            <a href="jobs.html" class="bottom-nav-item">
-                <i class="fas fa-briefcase"></i>
-                <span>Jobs</span>
-            </a>
         </nav>
+        
+        <div class="menu-social">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        </div>
     </div>
 
-    <!-- SEARCH OVERLAY -->
+    <!-- Top Navigation -->
+    <header class="top-nav">
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo">ABBAY TV <span class="gold-text">ETHIOPIA</span></div>
+        <button class="search-toggle" id="searchToggle">
+            <i class="fas fa-search"></i>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
     <div class="search-overlay" id="searchOverlay">
-        <div class="search-header">
-            <button class="back-btn" id="closeSearch"><i class="fas fa-arrow-left"></i></button>
-            <input type="text" id="mobileSearch" placeholder="Search programs..." autofocus>
+        <div class="search-container">
+            <input type="text" id="globalSearchInput" placeholder="Search programs...">
+            <button id="closeSearch"><i class="fas fa-times"></i></button>
         </div>
-        <div class="search-overlay-results" id="mobileSearchResults"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container" id="mainContent">
+        <h1 class="page-title">Our Programs</h1>
+        <div class="loading-spinner" id="loadingSpinner">
+            <div class="spinner"></div>
+        </div>
+        <div class="content-grid" id="contentGrid"></div>
+    </main>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="news.html" class="bottom-nav-item">
+            <i class="fas fa-newspaper"></i>
+            <span>News</span>
+        </a>
+        <a href="programs.html" class="bottom-nav-item active">
+            <i class="fas fa-tv"></i>
+            <span>Shows</span>
+        </a>
+        <a href="live.html" class="bottom-nav-item">
+            <i class="fas fa-circle"></i>
+            <span>Live</span>
+        </a>
+        <a href="jobs.html" class="bottom-nav-item">
+            <i class="fas fa-briefcase"></i>
+            <span>Jobs</span>
+        </a>
+    </nav>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="video-container">
+                <iframe id="youtubePlayer" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
     </div>
 
     <script src="main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            if (typeof loadProgramsPage === 'function') {
-                loadProgramsPage();
-            }
-        });
-    </script>
 </body>
 </html>

@@ -1,24 +1,17 @@
 {
-    "site_name": "ABBAY TV ETHIOPIA",
-    "site_description": "Premium Ethiopian Media Platform",
-    "sort_order": "desc",
-    "sort_by": "id",
-    "homepage": {
-        "latest_news_limit": 6,
-        "latest_programs_limit": 4,
-        "latest_jobs_limit": 3,
-        "show_live_only_if_active": true
-    },
-    "features_is_newest": true,
-    "site_status": "online",
-    "last_updated": "2026-02-18",
-    "theme": "black-gold",
-    "social": {
-        "facebook": "https://facebook.com/abbaytv",
-        "youtube": "https://youtube.com/abbaytv",
-        "telegram": "https://t.me/abbaytv",
-        "twitter": "https://twitter.com/abbaytv",
-        "instagram": "https://instagram.com/abbaytv",
-        "tiktok": "https://tiktok.com/@abbaytv"
-    }
+  "site_name": "ABBAY TV ETHIOPIA",
+  "theme": "black-gold",
+  "homepage": {
+    "latest_news_limit": 6,
+    "latest_programs_limit": 4,
+    "latest_jobs_limit": 3
+  },
+  "social": {
+    "facebook": "https://facebook.com/abbaytv",
+    "youtube": "https://youtube.com/abbaytv",
+    "telegram": "https://t.me/abbaytv",
+    "twitter": "https://twitter.com/abbaytv",
+    "instagram": "https://instagram.com/abbaytv",
+    "tiktok": "https://tiktok.com/@abbaytv"
+  }
 }
