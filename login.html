@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AbbayTV</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .auth-card {
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 16px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        .auth-header { text-align: center; margin-bottom: 2rem; }
+        .auth-header h1 { color: #FFD700; font-size: 2rem; margin-bottom: 0.5rem; }
+        .auth-header p { color: #B8860B; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; margin-bottom: 0.5rem; color: #FFD700; font-weight: 500; }
+        .form-input {
+            width: 100%;
+            padding: 0.9rem;
+            background: #000;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            color: #FFF;
+            font-size: 1rem;
+        }
+        .form-input:focus { outline: none; border-color: #FFD700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+        .auth-button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+        .auth-button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3); }
+        .auth-footer { text-align: center; margin-top: 2rem; color: #B8860B; }
+        .auth-footer a { color: #FFD700; text-decoration: none; }
+        .contact-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1A1A1A 0%, #0D0D0D 100%);
+            padding: 1rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        .contact-bar a { color: #FFD700; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="auth-card">
+        <div class="auth-header">
+            <h1>Welcome Back</h1>
+            <p>Sign in to continue to AbbayTV</p>
+        </div>
+        
+        <form onsubmit="event.preventDefault(); demoLogin();">
+            <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-input" id="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-input" id="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="auth-button">Sign In</button>
+        </form>
+        
+        <div class="auth-footer">
+            Don't have an account? <a href="signup.html">Sign up here</a>
+        </div>
+    </div>
+
+    <div class="contact-bar">
+        <p>📺 DEMO. For full authentication system with database and JWT, <a href="#" onclick="showContactAlert()">Contact Us</a></p>
+    </div>
+
+    <script>
+        function demoLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            if (email && password) {
+                alert("✅ Demo login successful!\n\nThis is a demonstration. In the full version:\n\n✅ User registration with email verification\n✅ Password hashing (bcrypt)\n✅ Session management\n✅ Admin/user roles\n✅ Password reset\n\nContact us to get the complete authentication system.");
+                window.location.href = "profile.html";
+            } else {
+                alert("Please enter both email and password.\n\nDemo credentials:\nadmin@abbaytv.com / admin123");
+            }
+        }
+        
+        function showContactAlert() {
+            alert("📧 Get full AbbayTV:\n\n✅ Flask-Login Authentication\n✅ User Registration\n✅ Password Hashing (bcrypt)\n✅ Session Management\n✅ Admin/User Roles\n✅ Email Verification\n✅ Password Reset\n\nContact: demo@abbaytv.com");
+        }
+    </script>
+</body>
+</html>

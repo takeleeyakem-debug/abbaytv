@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - AbbayTV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #0A0A0A;
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #000000;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding: 0.8rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #FFD700;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        .live-nav-link {
+            color: #FF0000 !important;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
+            color: #000000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #FFD700;
+            color: #FFD700;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #FF4444 0%, #CC0000 100%);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Profile Header */
+        .profile-header {
+            background: linear-gradient(145deg, #1A1A1A 0%, #0D0D0D 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .profile-info h1 {
+            color: #FFD700;
+            font-size: 2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .profile-info p {
+            color: #B8860B;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.15);
+            color: #FFD700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(145deg, #1A1A1A 0%, #0D0D0D 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FFD700;
+        }
+
+        .stat-label {
+            color: #B8860B;
+            margin-top: 0.3rem;
+        }
+
+        /* Profile Sections */
+        .profile-section {
+            background: linear-gradient(145deg, #1A1A1A 0%, #0D0D0D 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .section-title {
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #FFD700;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            background: #000000;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            color: #FFFFFF;
+            font-size: 1rem;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .content-card {
+            background: linear-gradient(145deg, #0D0D0D 0%, #050505 100%);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            transition: all 0.3s;
+        }
+
+        .content-card:hover {
+            border-color: rgba(255, 215, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .content-title {
+            color: #FFD700;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .content-meta {
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        /* Activity Timeline */
+        .activity-list {
+            display: flex;
+        }\n\n        .activity-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .activity-detail {
+            flex: 1;
+        }
+
+        .activity-text {
+            color: #FFF;
+        }
+
+        .activity-time {
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Bar */
+        .contact-bar {
+            background: linear-gradient(135deg, #1A1A1A 0%, #0D0D0D 100%);
+            padding: 1rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            margin-top: 2rem;
+        }
+
+        .contact-bar a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        .footer {
+            background-color: #000000;
+            border-top: 2px solid rgba(255, 215, 0, 0.3);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Alert */
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            animation: slideIn 0.3s;
+        }
+
+        .alert-success {
+            background: rgba(68, 255, 68, 0.2);
+            border: 1px solid #44FF44;
+            color: #88FF88;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #000000;
+                width: 80%;
+                height: calc(100vh - 70px);
+                padding: 2rem;
+                transition: left 0.3s ease;
+                border-right: 2px solid rgba(255, 215, 0, 0.3);
+                z-index: 999;
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .nav-right {
+                flex-direction: column;
+                width: 100%;
+            }
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">📺</div>
+                <span class="logo-text">AbbayTV</span>
+            </a>
+            <button class="hamburger" id="hamburger-btn">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="news.html">News</a>
+                <a href="programs.html">Programs</a>
+                <a href="live.html" class="live-nav-link">🔴 Live</a>
+                <a href="jobs.html">Jobs</a>
+                <div class="nav-right">
+                    <a href="profile.html" class="btn btn-secondary">Profile</a>
+                    <a href="login.html" class="btn btn-primary">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Alert Container -->
+        <div id="alertContainer"></div>
+
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-avatar" id="avatarInitial">👤</div>
+            <div class="profile-info">
+                <h1 id="displayName">John Doe</h1>
+                <p id="displayEmail">john@example.com</p>
+                <span class="profile-badge" id="memberBadge">Member since March 2025</span>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="newsCount">0</div>
+                <div class="stat-label">News Articles</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="programsCount">0</div>
+                <div class="stat-label">Programs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="commentsCount">0</div>
+                <div class="stat-label">Comments</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="likesCount">0</div>
+                <div class="stat-label">Likes Given</div>
+            </div>
+        </div>
+
+        <!-- Edit Profile Section -->
+        <div class="profile-section">
+            <h3 class="section-title">✏️ Edit Profile</h3>
+            <form id="profileForm">
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-input" id="editUsername" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" id="editEmail" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Bio</label>
+                    <textarea class="form-input" id="editBio" rows="3" placeholder="Tell us about yourself..."></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="updateProfile()">💾 Update Profile</button>
+            </form>
+        </div>
+
+        <!-- Change Password Section -->
+        <div class="profile-section">
+            <h3 class="section-title">🔒 Change Password</h3>
+            <form id="passwordForm">
+                <div class="form-group">
+                    <label class="form-label">Current Password</label>
+                    <input type="password" class="form-input" id="currentPassword" placeholder="Enter current password">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">New Password</label>
+                    <input type="password" class="form-input" id="newPassword" placeholder="Enter new password">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Confirm New Password</label>
+                    <input type="password" class="form-input" id="confirmNewPassword" placeholder="Confirm new password">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="changePassword()">🔑 Change Password</button>
+            </form>
+        </div>
+
+        <!-- My Content Section -->
+        <div class="profile-section">
+            <h3 class="section-title">📰 My Content</h3>
+            <div class="content-grid" id="myContentGrid">
+                <!-- Sample content will be inserted here -->
+            </div>
+        </div>
+
+        <!-- Activity Section -->
+        <div class="profile-section">
+            <h3 class="section-title">📊 Recent Activity</h3>
+            <div id="activityList">
+                <!-- Activity items inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-bar">
+        <p>📺 DEMO VERSION. For full profile system with database and real data, <a href="#" onclick="showContactAlert()">Contact Us</a></p>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 AbbayTV. Demo Version.</p>
+    </footer>
+
+    <script>
+        // Helper: show alert
+        function showAlert(message, type) {
+            const container = document.getElementById('alertContainer');
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type}`;
+            alertDiv.innerHTML = message;
+            container.appendChild(alertDiv);
+            setTimeout(() => {
+                alertDiv.style.opacity = '0';
+                alertDiv.style.transition = 'opacity 0.3s';
+                setTimeout(() => alertDiv.remove(), 300);
+            }, 4000);
+        }
+
+        // Get or initialize demo user data from localStorage
+        function getUserData() {
+            let user = localStorage.getItem('demoUser');
+            if (!user) {
+                // Default demo user
+                user = {
+                    username: 'John Doe',
+                    email: 'john@example.com',
+                    bio: 'Passionate about Ethiopian media and technology.',
+                    avatar: '👤',
+                    memberSince: 'March 2025',
+                    newsCount: 5,
+                    programsCount: 3,
+                    commentsCount: 12,
+                    likesCount: 47,
+                    myContent: [
+                        { type: 'news', title: 'Ethiopia Launches New Project', date: 'Mar 15, 2025' },
+                        { type: 'news', title: 'Cultural Festival 2025', date: 'Mar 10, 2025' },
+                        { type: 'program', title: 'Tech Talk Ethiopia', date: 'Mar 5, 2025' }
+                    ],
+                    activities: [
+                        { text: 'Commented on "Ethiopia Launches New Development Project"', time: '2 hours ago', icon: '💬' },
+                        { text: 'Liked "Tech Talk Ethiopia"', time: '1 day ago', icon: '❤️' },
+                        { text: 'Posted new article "Ethiopian Coffee Exports Rise"', time: '3 days ago', icon: '📝' }
+                    ]
+                };
+                localStorage.setItem('demoUser', JSON.stringify(user));
+            } else {
+                user = JSON.parse(user);
+            }
+            return user;
+        }
+
+        // Save user data
+        function saveUserData(user) {
+            localStorage.setItem('demoUser', JSON.stringify(user));
+        }
+
+        // Update profile UI
+        function updateProfileUI() {
+            const user = getUserData();
+            document.getElementById('displayName').innerText = user.username;
+            document.getElementById('displayEmail').innerText = user.email;
+            document.getElementById('avatarInitial').innerHTML = user.avatar || user.username.charAt(0).toUpperCase();
+            document.getElementById('memberBadge').innerHTML = `Member since ${user.memberSince}`;
+            document.getElementById('newsCount').innerText = user.newsCount;
+            document.getElementById('programsCount').innerText = user.programsCount;
+            document.getElementById('commentsCount').innerText = user.commentsCount;
+            document.getElementById('likesCount').innerText = user.likesCount;
+            document.getElementById('editUsername').value = user.username;
+            document.getElementById('editEmail').value = user.email;
+            document.getElementById('editBio').value = user.bio || '';
+            
+            // My Content Grid
+            const contentGrid = document.getElementById('myContentGrid');
+            if (user.myContent && user.myContent.length > 0) {
+                contentGrid.innerHTML = user.myContent.map(item => `
+                    <div class="content-card">
+                        <div class="content-title">${item.type === 'news' ? '📰' : '📺'} ${item.title}</div>
+                        <div class="content-meta">${item.date}</div>
+                    </div>
+                `).join('');
+            } else {
+                contentGrid.innerHTML = '<p style="color: #666;">No content yet.</p>';
+            }
+            
+            // Activity List
+            const activityList = document.getElementById('activityList');
+            if (user.activities && user.activities.length > 0) {
+                activityList.innerHTML = user.activities.map(act => `
+                    <div class="activity-item">
+                        <div class="activity-icon">${act.icon || '📌'}</div>
+                        <div class="activity-detail">
+                            <div class="activity-text">${act.text}</div>
+                            <div class="activity-time">${act.time}</div>
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                activityList.innerHTML = '<p style="color: #666; text-align: center;">No recent activity.</p>';
+            }
+        }
+
+        // Update profile
+        function updateProfile() {
+            const user = getUserData();
+            const newUsername = document.getElementById('editUsername').value.trim();
+            const newEmail = document.getElementById('editEmail').value.trim();
+            const newBio = document.getElementById('editBio').value.trim();
+            
+            if (!newUsername || !newEmail) {
+                showAlert('❌ Username and email are required', 'danger');
+                return;
+            }
+            
+            user.username = newUsername;
+            user.email = newEmail;
+            user.bio = newBio;
+            saveUserData(user);
+            updateProfileUI();
+            showAlert('✅ Profile updated successfully!', 'success');
+        }
+
+        // Change password
+        function changePassword() {
+            const current = document.getElementById('currentPassword').value;
+            const newPass = document.getElementById('newPassword').value;
+            const confirm = document.getElementById('confirmNewPassword').value;
+            
+            if (!current || !newPass || !confirm) {
+                showAlert('❌ Please fill all password fields', 'danger');
+                return;
+            }
+            if (newPass !== confirm) {
+                showAlert('❌ New passwords do not match', 'danger');
+                return;
+            }
+            if (newPass.length < 6) {
+                showAlert('❌ New password must be at least 6 characters', 'danger');
+                return;
+            }
+            // Demo success
+            showAlert('✅ Password changed successfully! (Demo - no actual change)', 'success');
+            document.getElementById('currentPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmNewPassword').value = '';
+        }
+
+        // Show contact alert for full version
+        function showContactAlert() {
+            alert("📧 CONTACT US FOR FULL ABBAYTV:\n\n✅ Complete Flask Backend\n✅ SQLite/PostgreSQL Database\n✅ User Authentication System\n✅ Admin Dashboard\n✅ YouTube API Integration\n✅ Live Streaming\n✅ Comment & Like System\n✅ Job Application System\n✅ Mobile Responsive\n✅ Custom Domain\n\n📞 Phone: +251 XXX XXX XXX\n📧 Email: info@abbaytv.com\n\nWe'll discuss pricing and timeline!");
+        }
+
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger-btn');
+        const navLinks = document.getElementById('navLinks');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Initialize profile
+        updateProfileUI();
+    </script>
+</body>
+</html>

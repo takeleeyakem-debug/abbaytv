@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobs - AbbayTV</title>
+    <title>Program Detail - AbbayTV</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -105,44 +105,25 @@
         }
         .btn-secondary:hover { background-color: rgba(255, 215, 0, 0.1); }
         .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
-        h1 { color: #FFD700; margin-bottom: 2rem; }
-        .filter-bar {
-            background: linear-gradient(145deg, #1A1A1A 0%, #0D0D0D 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-        .filter-group { display: flex; gap: 1rem; flex-wrap: wrap; }
-        .filter-input { flex: 2; min-width: 200px; padding: 0.8rem; background: #000; border: 1px solid #FFD700; border-radius: 6px; color: #FFF; }
-        .filter-select { flex: 1; min-width: 150px; padding: 0.8rem; background: #000; border: 1px solid #FFD700; border-radius: 6px; color: #FFF; }
-        .jobs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .job-card {
-            background: linear-gradient(145deg, #1A1A1A 0%, #0D0D0D 100%);
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
             border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
+            margin: 1.5rem 0;
+            border: 2px solid rgba(255, 215, 0, 0.3);
         }
-        .job-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 215, 0, 0.5);
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
-        .job-title { color: #FFD700; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
-        .job-company { color: #B8860B; margin-bottom: 0.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
-        .job-type {
-            display: inline-block;
-            background: rgba(255, 215, 0, 0.1);
-            color: #FFD700;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
+        .program-title { color: #FFD700; font-size: 2rem; margin-bottom: 0.5rem; }
+        .program-meta { color: #B8860B; margin-bottom: 1rem; display: flex; gap: 1rem; }
+        .program-content { color: #CCCCCC; line-height: 1.8; margin-top: 1rem; }
         .contact-bar {
             background: linear-gradient(135deg, #1A1A1A 0%, #0D0D0D 100%);
             padding: 1rem;
@@ -151,6 +132,7 @@
             margin-top: 2rem;
         }
         .footer { background-color: #000000; border-top: 2px solid rgba(255, 215, 0, 0.3); padding: 2rem; text-align: center; }
+        .like-section { display: flex; gap: 1rem; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255, 215, 0, 0.2); }
         @media (max-width: 768px) {
             .hamburger { display: flex; }
             .nav-links {
@@ -166,8 +148,7 @@
             }
             .nav-links.active { left: 0; }
             .nav-right { flex-direction: column; width: 100%; }
-            .filter-group { flex-direction: column; }
-            .jobs-grid { grid-template-columns: 1fr; }
+            .program-title { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -196,31 +177,24 @@
     </nav>
 
     <div class="container">
-        <h1>Career Opportunities</h1>
+        <a href="programs.html" class="btn btn-secondary" style="margin-bottom: 1rem;">← Back to Programs</a>
         
-        <div class="filter-bar">
-            <div class="filter-group">
-                <input type="text" class="filter-input" placeholder="Search jobs..." id="searchInput">
-                <select class="filter-select" id="typeSelect">
-                    <option value="all">All Types</option>
-                    <option value="Full-time">Full-time</option>
-                    <option value="Part-time">Part-time</option>
-                    <option value="Remote">Remote</option>
-                    <option value="Contract">Contract</option>
-                </select>
-                <button class="btn btn-primary" onclick="filterJobs()">Apply Filters</button>
-            </div>
-        </div>
-
-        <div class="jobs-grid" id="jobsGrid"></div>
-
-        <div style="text-align: center; padding: 2rem;">
-            <button class="btn btn-secondary" onclick="loadMoreJobs()">Load More</button>
+        <div class="program-title" id="programTitle">Loading...</div>
+        <div class="program-meta" id="programMeta"></div>
+        
+        <div class="video-wrapper" id="videoWrapper"></div>
+        
+        <div class="program-content" id="programContent">Loading content...</div>
+        
+        <div class="like-section">
+            <button class="btn btn-secondary" id="likeBtn">❤️ Like (0)</button>
+            <button class="btn btn-secondary" onclick="alert('Comment section available in full version! Contact us for backend.')">💬 Comment</button>
+            <button class="btn btn-secondary" onclick="alert('Share feature coming in full version')">📤 Share</button>
         </div>
     </div>
 
     <div class="contact-bar">
-        <p>📺 DEMO. For full job posting system with admin panel, <a href="#" onclick="showContactAlert()">Contact Us</a></p>
+        <p>📺 DEMO. For full version with working backend, <a href="#" onclick="showContactAlert()">Contact Us</a></p>
     </div>
 
     <footer class="footer">
@@ -228,44 +202,28 @@
     </footer>
 
     <script>
-        let allJobs = [
-            { title: 'Journalist', company: 'AbbayTV', location: 'Addis Ababa', type: 'Full-time', salary: 'Competitive', desc: 'Looking for experienced journalist to cover news and events.' },
-            { title: 'Video Editor', company: 'Media Corp', location: 'Remote', type: 'Remote', salary: '$30-40/hour', desc: 'Video editing for TV programs and digital content.' },
-            { title: 'Marketing Manager', company: 'Tech Solutions', location: 'Addis Ababa', type: 'Full-time', salary: 'Negotiable', desc: 'Digital marketing expert needed.' },
-            { title: 'Camera Operator', company: 'AbbayTV', location: 'Addis Ababa', type: 'Contract', salary: '$25/hour', desc: 'Experienced camera operator for live events.' },
-            { title: 'Social Media Manager', company: 'Digital Agency', location: 'Remote', type: 'Remote', salary: '$40k/year', desc: 'Manage social media accounts and content.' }
-        ];
-        let visibleCount = 4;
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoId = urlParams.get('id') || 'dQw4w9WgXcQ';
+        const title = decodeURIComponent(urlParams.get('title') || 'Morning Show with Abebe');
+        const host = decodeURIComponent(urlParams.get('host') || 'Abebe Kebede');
+        const desc = decodeURIComponent(urlParams.get('desc') || 'Join Abebe every morning for news, interviews, and entertainment.');
 
-        function loadJobs() {
-            const grid = document.getElementById('jobsGrid');
-            const searchTerm = document.getElementById('searchInput')?.value.toLowerCase() || '';
-            const type = document.getElementById('typeSelect')?.value || 'all';
-            
-            let filtered = allJobs.filter(job => {
-                const matchSearch = job.title.toLowerCase().includes(searchTerm) || job.company.toLowerCase().includes(searchTerm);
-                const matchType = type === 'all' || job.type === type;
-                return matchSearch && matchType;
-            });
-            
-            const toShow = filtered.slice(0, visibleCount);
-            grid.innerHTML = toShow.map(job => `
-                <div class="job-card" onclick="window.location.href='job-detail.html?title=${encodeURIComponent(job.title)}&company=${encodeURIComponent(job.company)}&location=${encodeURIComponent(job.location)}&type=${encodeURIComponent(job.type)}&salary=${encodeURIComponent(job.salary)}&desc=${encodeURIComponent(job.desc)}'">
-                    <h3 class="job-title">${job.title}</h3>
-                    <div class="job-company">
-                        <span>🏢 ${job.company}</span>
-                        <span>📍 ${job.location}</span>
-                    </div>
-                    <div><span class="job-type">${job.type}</span> • 💰 ${job.salary}</div>
-                    <p style="margin-top: 0.8rem; color: #CCC;">${job.desc}</p>
-                </div>
-            `).join('');
-        }
+        document.getElementById('programTitle').textContent = title;
+        document.getElementById('programContent').innerHTML = `<p>${desc}</p><p style="margin-top: 1rem;">This is a demonstration. In the full version, content is managed through an admin panel and stored in a database.</p>`;
+        document.getElementById('programMeta').innerHTML = `<span>Hosted by ${host}</span><span>👁️ ${Math.floor(Math.random() * 50000)} views</span><span>📅 First aired: March 2025</span>`;
+        document.getElementById('videoWrapper').innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
 
-        function filterJobs() { visibleCount = 4; loadJobs(); }
-        function loadMoreJobs() { visibleCount += 4; loadJobs(); }
+        let likes = 0;
+        const likeBtn = document.getElementById('likeBtn');
+        likeBtn.addEventListener('click', () => {
+            likes++;
+            likeBtn.innerHTML = `❤️ Like (${likes})`;
+            likeBtn.style.background = "linear-gradient(135deg, #FFD700 0%, #B8860B 100%)";
+            likeBtn.style.color = "#000";
+        });
+
         function showContactAlert() {
-            alert("📧 Get full AbbayTV with job posting system:\n\n✅ Flask Backend\n✅ Database\n✅ Admin Panel\n✅ Job Application Tracking\n✅ Email Notifications\n\nContact: demo@abbaytv.com");
+            alert("📧 Get full AbbayTV:\n\n✅ Flask Backend\n✅ SQLite/PostgreSQL Database\n✅ Admin Dashboard\n✅ User Authentication\n✅ YouTube API Integration\n✅ Live Streaming\n✅ Comment & Like System\n✅ Mobile Responsive\n✅ Custom Domain\n\nContact: demo@abbaytv.com");
         }
 
         const hamburger = document.getElementById('hamburger-btn');
@@ -276,7 +234,6 @@
                 navLinksEl.classList.toggle('active');
             });
         }
-        loadJobs();
     </script>
 </body>
 </html>

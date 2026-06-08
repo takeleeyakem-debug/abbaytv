@@ -2,131 +2,419 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>News - ABBAY TV ETHIOPIA</title>
-    <link rel="stylesheet" href="general.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - AbbayTV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #0A0A0A;
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: #000000;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding: 0.8rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #FFD700;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        .live-nav-link {
+            color: #FF0000 !important;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
+            color: #000000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #FFD700;
+            color: #FFD700;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            color: #FFD700;
+            margin-bottom: 2rem;
+        }
+
+        .filter-bar {
+            background: linear-gradient(145deg, #1A1A1A 0%, #0D0D0D 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-input {
+            flex: 2;
+            min-width: 200px;
+            padding: 0.8rem;
+            background: #000;
+            border: 1px solid #FFD700;
+            border-radius: 6px;
+            color: #FFF;
+        }
+
+        .filter-select {
+            flex: 1;
+            min-width: 150px;
+            padding: 0.8rem;
+            background: #000;
+            border: 1px solid #FFD700;
+            border-radius: 6px;
+            color: #FFF;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .thumbnail-card {
+            background: linear-gradient(145deg, #1A1A1A 0%, #0D0D0D 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .thumbnail-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .thumbnail-image {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: #000;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #333, #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .thumbnail-content {
+            padding: 1.2rem;
+        }
+
+        .thumbnail-title {
+            color: #FFD700;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .thumbnail-meta {
+            color: #B8860B;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-bar {
+            background: linear-gradient(135deg, #1A1A1A 0%, #0D0D0D 100%);
+            padding: 1rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            margin-top: 2rem;
+        }
+
+        .footer {
+            background-color: #000000;
+            border-top: 2px solid rgba(255, 215, 0, 0.3);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #000000;
+                width: 80%;
+                height: calc(100vh - 70px);
+                padding: 2rem;
+                transition: left 0.3s ease;
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .nav-right {
+                flex-direction: column;
+                width: 100%;
+            }
+            .filter-group {
+                flex-direction: column;
+            }
+            .thumbnail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Side Menu Overlay -->
-    <div class="menu-overlay" id="menuOverlay"></div>
-    
-    <!-- Side Menu -->
-    <div class="side-menu" id="sideMenu">
-        <div class="menu-header">
-            <div class="menu-logo">ABBAY TV</div>
-            <button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button>
-        </div>
-        
-        <div class="menu-search">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" id="menuSearchInput" placeholder="Search...">
-        </div>
-        
-        <nav class="menu-nav">
-            <a href="index.html" class="menu-item">
-                <i class="fas fa-home"></i>
-                <span>Home</span>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">📺</div>
+                <span class="logo-text">AbbayTV</span>
             </a>
-            <a href="news.html" class="menu-item active">
-                <i class="fas fa-newspaper"></i>
-                <span>News</span>
-            </a>
-            <a href="programs.html" class="menu-item">
-                <i class="fas fa-tv"></i>
-                <span>Programs</span>
-            </a>
-            <a href="live.html" class="menu-item">
-                <i class="fas fa-circle"></i>
-                <span>Live</span>
-            </a>
-            <a href="jobs.html" class="menu-item">
-                <i class="fas fa-briefcase"></i>
-                <span>Jobs</span>
-            </a>
-            <a href="contact.html" class="menu-item">
-                <i class="fas fa-envelope"></i>
-                <span>Contact</span>
-            </a>
-        </nav>
-        
-        <div class="menu-social">
-            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
-        </div>
-    </div>
-
-    <!-- Top Navigation -->
-    <header class="top-nav">
-        <button class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="logo">ABBAY TV <span class="gold-text">ETHIOPIA</span></div>
-        <button class="search-toggle" id="searchToggle">
-            <i class="fas fa-search"></i>
-        </button>
-    </header>
-
-    <!-- Search Overlay -->
-    <div class="search-overlay" id="searchOverlay">
-        <div class="search-container">
-            <input type="text" id="globalSearchInput" placeholder="Search news...">
-            <button id="closeSearch"><i class="fas fa-times"></i></button>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <main class="container" id="mainContent">
-        <h1 class="page-title">Latest News</h1>
-        <div class="loading-spinner" id="loadingSpinner">
-            <div class="spinner"></div>
-        </div>
-        <div class="content-grid" id="contentGrid"></div>
-    </main>
-
-    <!-- Bottom Navigation (Mobile) -->
-    <nav class="bottom-nav">
-        <a href="index.html" class="bottom-nav-item">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </a>
-        <a href="news.html" class="bottom-nav-item active">
-            <i class="fas fa-newspaper"></i>
-            <span>News</span>
-        </a>
-        <a href="programs.html" class="bottom-nav-item">
-            <i class="fas fa-tv"></i>
-            <span>Shows</span>
-        </a>
-        <a href="live.html" class="bottom-nav-item">
-            <i class="fas fa-circle"></i>
-            <span>Live</span>
-        </a>
-        <a href="jobs.html" class="bottom-nav-item">
-            <i class="fas fa-briefcase"></i>
-            <span>Jobs</span>
-        </a>
-    </nav>
-
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Video Modal -->
-    <div class="video-modal" id="videoModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="video-container">
-                <iframe id="youtubePlayer" frameborder="0" allowfullscreen></iframe>
+            <button class="hamburger" id="hamburger-btn">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="news.html">News</a>
+                <a href="programs.html">Programs</a>
+                <a href="live.html" class="live-nav-link">🔴 Live</a>
+                <a href="jobs.html">Jobs</a>
+                <div class="nav-right">
+                    <a href="login.html" class="btn btn-secondary">Login</a>
+                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                </div>
             </div>
         </div>
+    </nav>
+
+    <div class="container">
+        <h1>Latest News</h1>
+        
+        <div class="filter-bar">
+            <div class="filter-group">
+                <input type="text" class="filter-input" placeholder="Search news..." id="searchInput">
+                <select class="filter-select" id="categorySelect">
+                    <option value="all">All Categories</option>
+                    <option value="politics">Politics</option>
+                    <option value="sports">Sports</option>
+                    <option value="tech">Technology</option>
+                </select>
+                <button class="btn btn-primary" onclick="filterNews()">Apply Filters</button>
+            </div>
+        </div>
+
+        <div class="thumbnail-grid" id="newsGrid"></div>
+
+        <div style="text-align: center; padding: 2rem;">
+            <button class="btn btn-secondary" onclick="loadMoreNews()">Load More</button>
+        </div>
     </div>
 
-    <script src="main.js"></script>
+    <div class="contact-bar">
+        <p>📺 This is a DEMO version. For complete website with backend, database, and YouTube API, <a href="#" onclick="showContactAlert()">Contact Us</a></p>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 AbbayTV. Demo Version.</p>
+    </footer>
+
+    <script>
+        let allNews = [
+            { title: 'Ethiopia Launches New Development Project', date: 'March 15, 2025', category: 'politics', desc: 'Major infrastructure project announced in Addis Ababa boosting economy.', videoId: 'dQw4w9WgXcQ' },
+            { title: 'Ethiopian Athletes Shine in Marathon', date: 'March 14, 2025', category: 'sports', desc: 'Ethiopian runners take gold at international championship.', videoId: 'jfKfPfyJRdk' },
+            { title: 'New Tech Hub Opens in Addis', date: 'March 13, 2025', category: 'tech', desc: 'Innovation center launched to support startups.', videoId: '5qap5aO4i9A' },
+            { title: 'Cultural Festival Celebrates Unity', date: 'March 12, 2025', category: 'general', desc: 'Annual festival brings communities together.', videoId: 'MgFeTeO9QgY' },
+            { title: 'Ethiopian Coffee Exports Rise', date: 'March 11, 2025', category: 'business', desc: 'Record coffee exports this quarter.', videoId: 'dQw4w9WgXcQ' }
+        ];
+
+        let visibleNews = 4;
+
+        function loadNews() {
+            const grid = document.getElementById('newsGrid');
+            const searchTerm = document.getElementById('searchInput')?.value.toLowerCase() || '';
+            const category = document.getElementById('categorySelect')?.value || 'all';
+            
+            let filtered = allNews.filter(item => {
+                const matchesSearch = item.title.toLowerCase().includes(searchTerm) || item.desc.toLowerCase().includes(searchTerm);
+                const matchesCategory = category === 'all' || item.category === category;
+                return matchesSearch && matchesCategory;
+            });
+            
+            const toShow = filtered.slice(0, visibleNews);
+            
+            grid.innerHTML = toShow.map(item => `
+                <div class="thumbnail-card" onclick="window.location.href='news-detail.html?id=${item.videoId}&title=${encodeURIComponent(item.title)}&desc=${encodeURIComponent(item.desc)}'">
+                    <div class="thumbnail-image">
+                        <div class="video-placeholder">📺</div>
+                    </div>
+                    <div class="thumbnail-content">
+                        <h3 class="thumbnail-title">${item.title}</h3>
+                        <div class="thumbnail-meta">
+                            <span>${item.date}</span>
+                            <span>👁️ ${Math.floor(Math.random() * 5000)} views</span>
+                        </div>
+                        <p class="thumbnail-description">${item.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterNews() {
+            visibleNews = 4;
+            loadNews();
+        }
+
+        function loadMoreNews() {
+            visibleNews += 4;
+            loadNews();
+        }
+
+        function showContactAlert() {
+            alert("📧 For real AbbayTV website:\n\n✅ Flask Backend\n✅ Database\n✅ Admin Panel\n✅ YouTube API\n✅ Live Streaming\n✅ User System\n✅ Custom Domain\n\nContact: demo@abbaytv.com");
+        }
+
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger-btn');
+        const navLinksEl = document.getElementById('navLinks');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinksEl.classList.toggle('active');
+            });
+        }
+
+        loadNews();
+    </script>
 </body>
 </html>
